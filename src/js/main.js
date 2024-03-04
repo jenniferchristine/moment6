@@ -19,7 +19,6 @@ async function search(song) {
     const input = song.split(" ").join("+");
 
     const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input;
-    /*const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";*/
     const options = {
         method: 'GET',
         headers: {
@@ -78,6 +77,13 @@ function printSongs(result) {
         const albumText = document.createTextNode(song.album.title);
         album.appendChild(albumText);
         textContainer.appendChild(album);
+
+        var svgCode = '<svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m380-300 280-180-280-180v360ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg>';
+        var dataURL = 'data:image/svg+xml;base64,' + btoa(svgCode);
+        const playButton = document.createElement("img");
+        playButton.src = dataURL;
+        playButton.classList.add("playbutton");
+        textContainer.appendChild(playButton);
 
         container.appendChild(textContainer);
 
