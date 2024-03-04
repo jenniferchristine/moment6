@@ -43,6 +43,21 @@ function printSongs(result) {
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = "";
 
+    if (result.data.length === 0) {
+        const errorEl = document.createElement("h2");
+        const errorText = document.createTextNode("No results to be find in your search");
+        errorEl.appendChild(errorText);
+        resultDiv.appendChild(errorEl);
+
+        const paraErrorEl = document.createElement("p");
+        paraErrorEl.classList.add("noresult-text");
+        const paraText = document.createTextNode("Double check your spelling or try searching for both the name of the song and the artist");
+        paraErrorEl.appendChild(paraText);
+        resultDiv.appendChild(paraErrorEl);
+        
+        return;
+    }
+
     const alternative = document.createElement("h2");
     const alternativeText = document.createTextNode("Results from search...");
     alternative.appendChild(alternativeText);
