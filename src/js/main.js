@@ -18,10 +18,40 @@ function toggleMenu() {
 }
 
 window.onload = () => {
-    search();
+    const searchValue = document.getElementById("searchValue");
+
+    document.getElementById("searchButton").onclick = () => {
+        search(searchValue.value);
+    }
 }
 
-async function search() {
+async function search(song) {
+    const input = song.split(" ").join("+");
+
+    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input;
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '909254ca7bmsh60eaea82866cd6dp1c9572jsnc5023f43402d',
+            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
+        }
+    };
+
+    const response = await fetch(url, options);
+
+    if (response.ok) {
+        const data = await response.json();
+        printSongs(data);
+    } else {
+        console.log("ERROR: " + response.statusText);
+    }
+}
+
+function printSongs(songs) {
+    
+}
+
+/* async function search() {
     const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";
 
     const options = {
@@ -36,7 +66,7 @@ async function search() {
 
     if (response.ok) {
         const data = await response.json();
-        /* getLyrics(data.data[0].id); */
+        getLyrics(data.data[0].id);
         getLyrics();
     } else {
         console.log("ERROR: " + response.statusText);
@@ -53,4 +83,4 @@ async function getLyrics(id) {
     } else {
         console.log("ERROR");
     }
-}
+} */
