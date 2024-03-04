@@ -32,6 +32,8 @@ header {
     color: #fff;
     padding: 20px;
     box-sizing: border-box;
+    border-right: 1px solid rgb(43, 43, 43);
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
 }
 
 nav {
@@ -54,6 +56,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    //border: 1px solid yellow;
 
     #search-area {
         text-align: center;
@@ -75,7 +78,7 @@ section {
         input {
             border-radius: 5em;
             border: 1px black solid;
-            @include base.size(55%, 50px);
+            @include base.maxsize(400px, 50px, 95%);
             @include base.btn-text(25px, 900, 1px);
             @include base.text(center, 100% base.$font-stack);
             @include base.color(#ffffff, base.$light_color);
@@ -123,17 +126,28 @@ section {
     }
 }
 
-.noresult-text {
+.center {
     text-align: center;
 }
 
 .textContainer {
-    
+
     .icon-container {
         display: flex;
         align-items: center;
         gap: 1em;
         margin-top: -1em;
+    }
+}
+
+#result {
+    //border: 1px solid yellow;
+    text-align: center;
+
+    #big-logo {
+
+        width: 400px;
+        box-sizing: border-box;
     }
 }
 
@@ -143,23 +157,26 @@ section {
     }
 
     section {
-        margin-left: 100px;
+        margin-left: 140px;
+
     }
 
     .songResult {
         display: block !important;
+        border-bottom: none!important;
+        width: 100%;
 
         img {
-            margin: 0;
-        }
-
-        .textContainer {
-            margin: 0 !important;
+            margin-bottom: -7px;
         }
     }
 
     #search-area {
         display: block !important;
+        
+        svg {
+            margin-top: 1em;
+        }
     }
 }
 
@@ -170,6 +187,7 @@ section {
 
     section {
         margin: 0 auto;
+        width: 100%;
     }
 
     header {
@@ -178,6 +196,8 @@ section {
         margin: 0 auto;
         text-align: center;
         padding: 25px 0px 3px 0px;
+        border-bottom: 1px solid rgb(43, 43, 43);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 
         li {
             display: inline;
@@ -188,5 +208,19 @@ section {
         }
     }
 
+    #search-area {
+        display: block;
 
+        input {
+            border-radius: 8px!important;
+        }
+    }
+
+    .songResult {
+        padding: 0.5em 1.5em 1.5em 1.5em;
+    }
+    
+    #big-logo {
+        width: 70%!important;
+    }
 }

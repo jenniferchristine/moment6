@@ -43,13 +43,14 @@ function printSongs(result) {
     resultDiv.innerHTML = "";
 
     if (result.data.length === 0) {
+
         const errorEl = document.createElement("h2");
         const errorText = document.createTextNode("No results to be find in your search");
         errorEl.appendChild(errorText);
         resultDiv.appendChild(errorEl);
 
         const paraErrorEl = document.createElement("p");
-        paraErrorEl.classList.add("noresult-text");
+        paraErrorEl.classList.add("center");
         const paraText = document.createTextNode("Double check your spelling or try searching for both the name of the song and the artist");
         paraErrorEl.appendChild(paraText);
         resultDiv.appendChild(paraErrorEl);
