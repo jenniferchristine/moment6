@@ -23,12 +23,16 @@ window.onload = () => {
     document.getElementById("searchButton").onclick = () => {
         search(searchValue.value);
     }
+
+    // auto-search
+    search(searchValue.value);
 }
 
 async function search(song) {
     const input = song.split(" ").join("+");
 
-    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input;
+    /* const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input; */
+    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";
     const options = {
         method: 'GET',
         headers: {
@@ -47,8 +51,21 @@ async function search(song) {
     }
 }
 
-function printSongs(songs) {
-    
+function printSongs(result) {
+    console.log(result.data.slice(0, 5));
+    const resultDiv = document.getElementById("result");
+
+    result.data.slice(0, 5).forEach((song) => {
+        const title = document.createElement("p");
+        const titleText = document.createTextNode(song.title);
+        title.appendChild(titleText);
+        resultDiv.appendChild(title);
+
+        const albumCover = document.createElement("img");
+        albumCover.src = song.album.cover;
+        albumCover.classList.add("album-cover");
+        resultDiv.appendChild(albumCover);
+    });
 }
 
 /* async function search() {
