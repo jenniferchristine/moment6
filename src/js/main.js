@@ -55,9 +55,14 @@ function printSongs(result) {
     console.log(result.data.slice(0, 5));
     const resultDiv = document.getElementById("result");
 
+    const alternative = document.createElement("h2");
+    const alternativeText = document.createTextNode("Results from search...");
+    alternative.appendChild(alternativeText);
+    resultDiv.appendChild(alternative);
+
     result.data.slice(0, 5).forEach((song) => {
         const title = document.createElement("p");
-        const titleText = document.createTextNode(song.title);
+        const titleText = document.createTextNode(song.artist.name+" - "+song.title);
         title.appendChild(titleText);
         resultDiv.appendChild(title);
 
