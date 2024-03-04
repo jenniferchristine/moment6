@@ -10,7 +10,6 @@ body {
 
     p {
         @include base.text(left, 100% base.$light_color);
-        line-height: 1.7em;
     }
 
     h2 {
@@ -18,7 +17,9 @@ body {
         text-align: center;
     }
 
-    h1 {text-align: center;}
+    h1 {
+        text-align: center;
+    }
 }
 
 header {
@@ -112,32 +113,64 @@ section {
         justify-content: space-between;
         border-bottom: 0.2px solid grey;
 
-        &:nth-child(even) {background-color: #333;}
-        .textContainer {margin-left: 10px;}
+        &:nth-child(even) {
+            background-color: #333;
+        }
+
+        .textContainer {
+            margin-left: 10px;
+        }
     }
 }
 
-    .noresult-text{
-        text-align: center;
+.noresult-text {
+    text-align: center;
+}
+
+.textContainer {
+    
+    .icon-container {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin-top: -1em;
     }
+}
 
 @media only screen and (max-width: 798px) {
-    header {bottom: 0;}
-    section {margin-left: 100px;}
+    header {
+        bottom: 0;
+    }
+
+    section {
+        margin-left: 100px;
+    }
 
     .songResult {
         display: block !important;
 
-        img {margin: 0;}
-        .textContainer {margin: 0 !important;}
+        img {
+            margin: 0;
+        }
+
+        .textContainer {
+            margin: 0 !important;
+        }
     }
 
-    #search-area {display: block !important;}
+    #search-area {
+        display: block !important;
+    }
 }
 
 @media screen and (max-width: 600px) {
-    body {padding: 0;}
-    section {margin: 0 auto;}
+    body {
+        padding: 0;
+    }
+
+    section {
+        margin: 0 auto;
+    }
 
     header {
         position: static;
@@ -146,9 +179,14 @@ section {
         text-align: center;
         padding: 25px 0px 3px 0px;
 
-        li {display: inline;}
-        ul {text-align: center;}
+        li {
+            display: inline;
+        }
+
+        ul {
+            text-align: center;
+        }
     }
-    
-    
+
+
 }

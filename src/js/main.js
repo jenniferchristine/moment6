@@ -65,6 +65,7 @@ function printSongs(result) {
     result.data.slice(0, 5).forEach((song) => {
         const container = document.createElement("div");
         const textContainer = document.createElement("div");
+        const iconContainer = document.createElement("div");
 
         container.classList.add("songResult");
         textContainer.classList.add("textContainer");
@@ -78,12 +79,20 @@ function printSongs(result) {
         album.appendChild(albumText);
         textContainer.appendChild(album);
 
+        iconContainer.classList.add("icon-container");
 
         const playButton = document.createElement("span");
         playButton.classList.add("material-symbols-outlined");
         playButton.innerHTML = "play_circle";
-        textContainer.appendChild(playButton);
+        iconContainer.appendChild(playButton);
 
+        const lyricsEl = document.createElement("p");
+        lyricsEl.classList.add("lyrics");
+        const lyricsText = document.createTextNode("LYRICS");
+        lyricsEl.appendChild(lyricsText);
+        iconContainer.appendChild(lyricsEl);
+
+        textContainer.appendChild(iconContainer);
         container.appendChild(textContainer);
 
         const albumCover = document.createElement("img");
