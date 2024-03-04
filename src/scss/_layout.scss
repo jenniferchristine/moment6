@@ -1,0 +1,140 @@
+@use 'base';
+
+nav {
+    @include base.size(250px, 100vh);
+    display: none;
+    position: absolute;
+    background-color: base.$light_color;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.71);
+    font-size: 1.4em;
+    right: 0;
+    top: 0;
+
+    ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    li {
+        padding: 1em 0.5em;
+        width: 100%;
+        text-align: left;
+    }
+
+    a {
+        text-decoration: none;
+        padding: 0 0.3em;
+        left: 0;
+        color: base.$primary-color;
+    }
+
+    a:hover {
+        color: base.$primary-color;
+        border-bottom: 3px solid base.$primary-color;
+        border-bottom: base.$primary-color 8px solid;
+        transition-duration: 0.4s;
+    }
+
+    li:hover {
+        cursor: pointer;
+        color: base.$primary-color;
+    }
+
+    .position {
+        border-bottom: base.$primary-color 8px solid;
+        margin: 0 auto;
+    }
+}
+
+.menu-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background-color: base.$light_color;
+    border: none;
+}
+
+.open {
+    margin: 0 1em;
+}
+
+.menu-btn:hover {
+    transform: scale(1.2);
+}
+
+.menu-icon {
+    margin-right: 10px;
+}
+
+.bars {
+    @include base.size(20px, 3px);
+    display: block;
+    background-color: base.$primary-color;
+    margin: 5px 0;
+}
+
+.menu-text {
+    font-size: 2em;
+    color: base.$primary-color;
+}
+
+.close {
+    margin: 1em 1.5em;
+    padding: 10px 15px;
+}
+
+.cross1 {
+    width: 25px;
+    transform: rotate(45deg);
+    position: relative;
+    background-color: base.$primary-color;
+    top: 5px;
+}
+
+.cross2 {
+    width: 25px;
+    transform: rotate(135deg);
+    position: relative;
+    background-color: base.$primary-color;
+    top: -3px;
+}
+
+@media only screen and (min-width: 992px) {
+    .menu-btn {
+        display: none;
+    }
+
+    #open-menu {
+        display: none !important;
+    }
+
+    nav {
+        @include base.size(auto, auto);
+        display: block !important;
+        position: relative;
+        box-shadow: 0 0px 0px;
+        font-size: 1.4em;
+        margin-right: 2.5em;
+    }
+
+    nav ul {
+        height: 100%;
+    }
+
+    nav li {
+        display: inline;
+        padding: 1.2em 0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        nav {
+            .position {
+                border-bottom: base.$light_color 8px solid;
+            }
+        }
+    }
+}

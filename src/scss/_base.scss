@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+$font-stack: 'Poppins';
+$primary-color: #464646;
+$light_color: rgb(255, 255, 255);
+$dark_color: rgb(44, 44, 44);
+$paragraph-text: 'Inter';
+
+@mixin maxsize($width, $height, $fullwidth) {
+    width: $width;
+    height: $height;
+    max-width: $fullwidth;
+}
+
+@mixin size($wide, $high) {
+    width: $wide;
+    height: $high;
+}
+
+@mixin color($bkgd, $textcolor) {
+    background-color: $bkgd;
+    color: $textcolor;
+}
+
+@mixin text($align, $font) {
+    text-align: $align;
+    font: $font;
+}
+
+@mixin btn-text($size, $widetext, $space) {
+    font-size: $size;
+    font-weight: $widetext;
+    letter-spacing: $space;
+}
