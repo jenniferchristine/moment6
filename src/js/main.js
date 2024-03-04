@@ -7,15 +7,19 @@ window.onload = () => {
         search(searchValue.value);
     }
 
-    // auto-search
     search(searchValue.value);
+
+    searchValue.addEventListener('keypress', async function (e) {
+        if (e.key === 'Enter')
+        search(searchValue.value);
+    });
 }
 
 async function search(song) {
     const input = song.split(" ").join("+");
 
-    /* const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input; */
-    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";
+    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + input;
+    /*const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";*/
     const options = {
         method: 'GET',
         headers: {
@@ -37,6 +41,7 @@ async function search(song) {
 function printSongs(result) {
     console.log(result.data.slice(0, 5));
     const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "";
 
     const alternative = document.createElement("h2");
     const alternativeText = document.createTextNode("Results from search...");
@@ -44,15 +49,29 @@ function printSongs(result) {
     resultDiv.appendChild(alternative);
 
     result.data.slice(0, 5).forEach((song) => {
+        const container = document.createElement("div");
+        const textContainer = document.createElement("div");
+
+        container.classList.add("songResult");
+        textContainer.classList.add("textContainer");
         const title = document.createElement("p");
         const titleText = document.createTextNode(song.artist.name+" - "+song.title);
         title.appendChild(titleText);
-        resultDiv.appendChild(title);
+        textContainer.appendChild(title);
+
+        const album = document.createElement("p");
+        const albumText = document.createTextNode(song.album.title);
+        album.appendChild(albumText);
+        textContainer.appendChild(album);
+
+        container.appendChild(textContainer);
 
         const albumCover = document.createElement("img");
         albumCover.src = song.album.cover;
         albumCover.classList.add("album-cover");
-        resultDiv.appendChild(albumCover);
+        container.appendChild(albumCover);
+
+        resultDiv.appendChild(container);
     });
 }
 

@@ -1,12 +1,11 @@
 @use 'base';
 
 body {
-    @include base.text(center, 100% base.$font-stack);
+    @include base.text(left, 100% base.$font-stack);
     @include base.color(base.$primary-color, base.$light_color);
     margin: 0 auto;
-    justify-content: center;
     gap: 20em;
-    display: flex;
+    box-sizing: border-box;
     padding: 3em;
 
     p {
@@ -16,11 +15,25 @@ body {
 
     h2 {
         font-size: 20px;
+        text-align: center;
     }
+
+    h1 {text-align: center;}
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 nav {
-    display: block;
 
     ul {
         list-style-type: none;
@@ -35,12 +48,93 @@ nav {
 }
 
 section {
-    @include base.maxsize(900px, auto, 100%);
+    @include base.maxsize(70%, auto, 800px);
     box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+
+    #search-area {
+        text-align: center;
+        margin-bottom: 4em;
+
+        input {
+            border-radius: 5em;
+            border: 1px black solid;
+            @include base.size(55%, 50px);
+            @include base.btn-text(25px, 900, 1px);
+            @include base.text(center, 100% base.$font-stack);
+            @include base.color(#ffffff, base.$light_color);
+            box-sizing: border-box;
+            border: base.$primary-color 1px solid;
+
+            &:focus {
+                @include base.btn-text(16px, 300, 1px);
+                @include base.color(base.$light_color, base.$primary-color);
+                outline: 2px base.$primary-color;
+                filter: brightness(75%);
+            }
+
+            &::placeholder {
+                @include base.btn-text(25px, 300, 1px);
+                color: base.$light_color;
+            }
+
+            &:active {
+                background-color: base.$light_color;
+                filter: brightness(75%);
+            }
+
+            &:hover {
+                transition: 1s;
+                filter: brightness(75%);
+            }
+        }
+    }
+
+    .songResult {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.2px solid grey;
+
+        &:nth-child(even) {background-color: #333;}
+        .textContainer {margin-left: 10px;}
+    }
+
+    img {margin-left: 3em;}
 }
 
-@media only screen and (max-width: 600px) {
-section {
-    padding: 1em;
+
+@media only screen and (max-width: 798px) {
+    header {bottom: 0;}
+    section {margin-left: 100px;}
+
+    .songResult {
+        display: block !important;
+
+        img {margin: 0;}
+        .textContainer {margin: 0 !important;}
+    }
+
+    #search-area {display: block !important;}
 }
+
+@media screen and (max-width: 600px) {
+    body {padding: 0;}
+    section {margin: 0 auto;}
+
+    header {
+        position: static;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 25px 0px 3px 0px;
+
+        li {display: inline;}
+        ul {text-align: center;}
+    }
+    
+    
 }
