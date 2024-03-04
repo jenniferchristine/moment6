@@ -1,13 +1,49 @@
 @use 'base';
 
+body {
+    @include base.text(center, 100% base.$font-stack);
+    @include base.color(base.$primary-color, base.$light_color);
+    margin: 0 auto;
+
+    p {
+        @include base.text(left, 100% base.$light_color);
+        line-height: 1.7em;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+section {
+    @include base.maxsize(900px, auto, 100%);
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 3em;
+}
+
+header {
+    width: 100%;
+
+    div {
+        @include base.maxsize(100%, auto, 1200px);
+        @include base.align(center, space-between);
+        display: flex;
+        box-sizing: border-box;
+        border-bottom: 1px solid base.$light_color;
+        padding: 1em 0em 1em 1em;
+        margin: 0 auto;
+    }
+}
+
 nav {
     @include base.size(250px, 100vh);
     display: none;
     position: absolute;
-    background-color: base.$light_color;
     box-shadow: 0 0px 10px rgba(0, 0, 0, 0.71);
     font-size: 1.4em;
     right: 0;
+    background-color: base.$primary-color;
     top: 0;
 
     ul {
@@ -28,23 +64,23 @@ nav {
         text-decoration: none;
         padding: 0 0.3em;
         left: 0;
-        color: base.$primary-color;
+        color: base.$light_color;
     }
 
     a:hover {
-        color: base.$primary-color;
-        border-bottom: 3px solid base.$primary-color;
-        border-bottom: base.$primary-color 8px solid;
-        transition-duration: 0.4s;
+        color: base.$light_color;
+        border-bottom: 3px solid base.$light_color;
+        border-bottom: base.$light_color 8px solid;
+        transition-duration: 0.2s;
     }
 
     li:hover {
         cursor: pointer;
-        color: base.$primary-color;
+        color: base.$light_color;
     }
 
     .position {
-        border-bottom: base.$primary-color 8px solid;
+        border-bottom: base.$light_color 8px solid;
         margin: 0 auto;
     }
 }
@@ -54,7 +90,7 @@ nav {
     display: flex;
     align-items: center;
     padding: 8px 15px;
-    background-color: base.$light_color;
+    background-color: base.$primary-color;
     border: none;
 }
 
@@ -64,6 +100,7 @@ nav {
 
 .menu-btn:hover {
     transform: scale(1.2);
+    transition: 0.4s;
 }
 
 .menu-icon {
@@ -73,13 +110,8 @@ nav {
 .bars {
     @include base.size(20px, 3px);
     display: block;
-    background-color: base.$primary-color;
+    background-color: base.$light_color;
     margin: 5px 0;
-}
-
-.menu-text {
-    font-size: 2em;
-    color: base.$primary-color;
 }
 
 .close {
@@ -91,7 +123,7 @@ nav {
     width: 25px;
     transform: rotate(45deg);
     position: relative;
-    background-color: base.$primary-color;
+    background-color: base.$light_color;
     top: 5px;
 }
 
@@ -99,11 +131,11 @@ nav {
     width: 25px;
     transform: rotate(135deg);
     position: relative;
-    background-color: base.$primary-color;
+    background-color: base.$light_color;
     top: -3px;
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 600px) {
     .menu-btn {
         display: none;
     }
@@ -137,4 +169,10 @@ nav {
             }
         }
     }
+}
+
+@media only screen and (max-width: 600px) {
+section {
+    padding: 1em;
+}
 }

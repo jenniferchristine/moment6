@@ -34,3 +34,8 @@ $paragraph-text: 'Inter';
     font-weight: $widetext;
     letter-spacing: $space;
 }
+
+@mixin align($align, $justify) {
+    align-items: $align;
+    justify-content: $justify;
+}
