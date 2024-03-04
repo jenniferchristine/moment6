@@ -60,7 +60,6 @@ section {
 
     #search-area {
         text-align: center;
-        margin-bottom: 4em;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -151,6 +150,12 @@ section {
     }
 }
 
+.line {
+    width: 100%;
+    border: 1px solid grey;
+    margin: 5em 0em 5em 0em;
+}
+
 @media only screen and (max-width: 798px) {
     header {
         bottom: 0;
@@ -198,6 +203,7 @@ section {
         padding: 25px 0px 3px 0px;
         border-bottom: 1px solid rgb(43, 43, 43);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 5em;
 
         li {
             display: inline;
@@ -210,6 +216,7 @@ section {
 
     #search-area {
         display: block;
+        margin-bottom: 5em!important;
 
         input {
             border-radius: 8px!important;
@@ -219,8 +226,16 @@ section {
     .songResult {
         padding: 0.5em 1.5em 1.5em 1.5em;
     }
-    
+
+    #result {
+        text-align: left;
+    }
     #big-logo {
-        width: 70%!important;
+        width: 100%!important;
+        padding: 0em 3em 0em 3em;
+    }
+
+    .line {
+        display: none;
     }
 }
