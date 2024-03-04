@@ -4,6 +4,10 @@ body {
     @include base.text(center, 100% base.$font-stack);
     @include base.color(base.$primary-color, base.$light_color);
     margin: 0 auto;
+    justify-content: center;
+    gap: 20em;
+    display: flex;
+    padding: 3em;
 
     p {
         @include base.text(left, 100% base.$light_color);
@@ -15,160 +19,24 @@ body {
     }
 }
 
-section {
-    @include base.maxsize(900px, auto, 100%);
-    margin: 0 auto;
-    box-sizing: border-box;
-    padding: 3em;
-}
-
-header {
-    width: 100%;
-
-    div {
-        @include base.maxsize(100%, auto, 1200px);
-        @include base.align(center, space-between);
-        display: flex;
-        box-sizing: border-box;
-        border-bottom: 1px solid base.$light_color;
-        padding: 1em 0em 1em 1em;
-        margin: 0 auto;
-    }
-}
-
 nav {
-    @include base.size(250px, 100vh);
-    display: none;
-    position: absolute;
-    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.71);
-    font-size: 1.4em;
-    right: 0;
-    background-color: base.$primary-color;
-    top: 0;
+    display: block;
 
     ul {
-        width: 100%;
         list-style-type: none;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0;
-    }
-
-    li {
-        padding: 1em 0.5em;
-        width: 100%;
         text-align: left;
+        padding: 0;
     }
 
     a {
         text-decoration: none;
-        padding: 0 0.3em;
-        left: 0;
         color: base.$light_color;
     }
-
-    a:hover {
-        color: base.$light_color;
-        border-bottom: 3px solid base.$light_color;
-        border-bottom: base.$light_color 8px solid;
-        transition-duration: 0.2s;
-    }
-
-    li:hover {
-        cursor: pointer;
-        color: base.$light_color;
-    }
-
-    .position {
-        border-bottom: base.$light_color 8px solid;
-        margin: 0 auto;
-    }
 }
 
-.menu-btn {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    padding: 8px 15px;
-    background-color: base.$primary-color;
-    border: none;
-}
-
-.open {
-    margin: 0 1em;
-}
-
-.menu-btn:hover {
-    transform: scale(1.2);
-    transition: 0.4s;
-}
-
-.menu-icon {
-    margin-right: 10px;
-}
-
-.bars {
-    @include base.size(20px, 3px);
-    display: block;
-    background-color: base.$light_color;
-    margin: 5px 0;
-}
-
-.close {
-    margin: 1em 1.5em;
-    padding: 10px 15px;
-}
-
-.cross1 {
-    width: 25px;
-    transform: rotate(45deg);
-    position: relative;
-    background-color: base.$light_color;
-    top: 5px;
-}
-
-.cross2 {
-    width: 25px;
-    transform: rotate(135deg);
-    position: relative;
-    background-color: base.$light_color;
-    top: -3px;
-}
-
-@media only screen and (min-width: 600px) {
-    .menu-btn {
-        display: none;
-    }
-
-    #open-menu {
-        display: none !important;
-    }
-
-    nav {
-        @include base.size(auto, auto);
-        display: block !important;
-        position: relative;
-        box-shadow: 0 0px 0px;
-        font-size: 1.4em;
-        margin-right: 2.5em;
-    }
-
-    nav ul {
-        height: 100%;
-    }
-
-    nav li {
-        display: inline;
-        padding: 1.2em 0;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        nav {
-            .position {
-                border-bottom: base.$light_color 8px solid;
-            }
-        }
-    }
+section {
+    @include base.maxsize(900px, auto, 100%);
+    box-sizing: border-box;
 }
 
 @media only screen and (max-width: 600px) {
