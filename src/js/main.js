@@ -7,8 +7,6 @@ window.onload = () => {
         search(searchValue.value);
     }
 
-    search(searchValue.value);
-
     searchValue.addEventListener('keypress', async function (e) {
         if (e.key === 'Enter')
             search(searchValue.value);
@@ -95,6 +93,8 @@ function printSongs(result) {
         lyricsEl.classList.add("lyrics");
         const lyricsText = document.createTextNode("LYRICS");
         lyricsEl.appendChild(lyricsText);
+        lyricsEl.onclick = () => showLyrics(song.artist.name, song.title);
+
         iconContainer.appendChild(lyricsEl);
 
         textContainer.appendChild(iconContainer);
@@ -109,42 +109,45 @@ function printSongs(result) {
     });
 }
 
+async function showLyrics(artistName, title) {
+    const lyrics = await getLyrics(artistName, title);
+    const container = document.getElementById("result");
+    container.innerHTML = "";
+
+    const abc = document.createElement("p");
+    abc.innerHTML = lyrics.split("\n").join("<br>");
+    container.appendChild(abc);
+}
+
+async function getLyrics(artistName, title) {
+    try {
+        const trimmedName = artistName.split(" ").join("+");
+        const trimmedTitle = title.split(" ").join("+");
+        const url = "https://api.lyrics.ovh/v1/" + trimmedName + "/" + trimmedTitle;
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json();
+
+            return data.lyrics.substring(data.lyrics.indexOf("\r") + 1);
+
+        } else {
+            if (response.status === 404) {
+                return "Lyrics for this song could not be found";
+            } else {
+                console.log("Something went wrong:", response.statusText);
+                return "Lyrics for this song could not be found";
+            }
+        }
+    } catch (error) {
+        console.error("Something went wrong:", error);
+        return "Lyrics for this song could not be found";
+    }
+}
+
 function playSong(previewURL) {
     console.log(previewURL);
     const audio = new Audio(previewURL);
     audio.play();
 }
-
-/* async function search() {
-    const url = "https://deezerdevs-deezer.p.rapidapi.com/search?q=love+the+way+you+lie";
-
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '909254ca7bmsh60eaea82866cd6dp1c9572jsnc5023f43402d',
-            'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
-        }
-    };
-
-    const response = await fetch(url, options);
-
-    if (response.ok) {
-        const data = await response.json();
-        getLyrics(data.data[0].id);
-        getLyrics();
-    } else {
-        console.log("ERROR: " + response.statusText);
-    }
-}
-
-async function getLyrics(id) {
-    const url = "https://api.lyrics.ovh/v1/coldplay/adventure+of+a+lifetime";
-    const response = await fetch(url);
-
-    if (response.ok) {
-        const data = await response.json();
-        console.log(data.lyrics);
-    } else {
-        console.log("ERROR");
-    }
-} */
