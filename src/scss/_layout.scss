@@ -1,193 +1,159 @@
-@use 'base';
+@use 'base' as *;
 
 body {
-    @include base.text(left, 100% base.$font-stack);
-    @include base.color(base.$primary-color, base.$light_color);
-    margin: 0 auto;
+    @include text(left, 100% $font-stack);
+    @include color($primary-color, $light_color);
+    @include boxspace(border-box, 3em);
+    margin-left: 110px;
     gap: 20em;
-    box-sizing: border-box;
-    padding: 3em;
 
-    p {
-        @include base.text(left, 100% base.$light_color);
-    }
+    h1 {text-align: center;}
+    p {@include text(left, 100% $light_color);}
 
     h2 {
         font-size: 20px;
         text-align: center;
     }
-
-    h1 {
-        text-align: center;
-    }
 }
 
 header {
+    @include size(110px, 100%);
+    @include color($darker_color, $light_color);
+    @include boxspace(border-box, 20px);
+    @include fixed(0, 0);
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 110px;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-    border-right: 1px solid rgb(43, 43, 43);
-    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+    border-right: 1px solid $dark_color;
+    box-shadow: 5px 0 10px $dark_color;
+
+    #logo{&:hover{cursor: pointer;}}
+    ul {@include ul(none, left, 0);}
+    a {@include a(none, $light_color);}
 }
 
-nav {
+#img-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
 
-    ul {
-        list-style-type: none;
-        text-align: left;
-        padding: 0;
-    }
+    &:hover .replacement {opacity: 1;}
+}
 
-    a {
-        text-decoration: none;
-        color: base.$light_color;
-    }
+#logo-container {
+    position: relative;
+    width: 10px;
+    height: 55px;
+
+    &:hover .replacement {opacity: 1;}
+}
+
+.replacement {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 section {
-    @include base.maxsize(70%, auto, 800px);
+    @include maxsize(70%, auto, 800px);
+    @include align(center, center);
     box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
     margin: 0 auto;
-    //border: 1px solid yellow;
+
+    #result {text-align: center;}
+    .textContainer {margin-left: 10px;}
+    .album-cover {@include size(150px, 150px);}
+    .center {text-align: center;}
+
+    .line {
+        width: 100%;
+        border: 1px solid $linecolor;
+        margin: 5em 0em 5em 0em;
+    }
+
+    .material-symbols-outlined {
+        &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
+    }
 
     #search-area {
+        @include align(center, center);
         text-align: center;
         display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .search-icon {
-            fill: white;
-            margin-left: 7px;
-
-            &:hover {
-                transform: scale(1.4);
-                transition: 0.2s;
-            }
-        }
-
-        input {
-            border-radius: 5em;
-            border: 1px black solid;
-            @include base.maxsize(400px, 50px, 95%);
-            @include base.btn-text(25px, 900, 1px);
-            @include base.text(center, 100% base.$font-stack);
-            @include base.color(#ffffff, base.$light_color);
-            box-sizing: border-box;
-            border: base.$primary-color 1px solid;
-
-            &:focus {
-                @include base.btn-text(16px, 300, 1px);
-                @include base.color(base.$light_color, base.$primary-color);
-                outline: 2px base.$primary-color;
-                filter: brightness(75%);
-            }
-
-            &::placeholder {
-                @include base.btn-text(25px, 300, 1px);
-                color: base.$light_color;
-            }
-
-            &:active {
-                background-color: base.$light_color;
-                filter: brightness(75%);
-            }
-
-            &:hover {
-                transition: 1s;
-                filter: brightness(75%);
-            }
-        }
     }
 
     .songResult {
-        width: 100%;
+        @include size(100%, auto);
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        border-bottom: 0.2px solid grey;
+        border-bottom: 0.2px solid $linecolor;
+        text-align: left;
 
-        &:nth-child(even) {
-            background-color: #333;
-        }
-
-        .textContainer {
-            margin-left: 10px;
-        }
+        &:nth-child(even) {background-color: $darker_color;}
     }
-}
-
-.center {
-    text-align: center;
-}
-
-.textContainer {
 
     .icon-container {
         display: flex;
         align-items: center;
         gap: 1em;
         margin-top: -1em;
+
+        .lyrics {&:hover {@include hovereffect(scale(1.2), 0.2s, pointer);}}
     }
 }
 
-#result {
-    //border: 1px solid yellow;
-    text-align: center;
+.search-icon {
+    fill: $light_color;
+    margin-left: 7px;
 
-    #big-logo {
+    &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
+}
 
-        width: 400px;
-        box-sizing: border-box;
+input {
+    @include maxsize(400px, 50px, 95%);
+    @include btn-text(25px, 900, 1px);
+    @include text(center, 100% $font-stack);
+    @include color($light_color, $light_color);
+    border-radius: 5em;
+    box-sizing: border-box;
+    border: $primary-color 1px solid;
+
+    &:focus {
+        @include btn-text(16px, 300, 1px);
+        @include color($light_color, $primary-color);
+        outline: 2px $primary-color;
+        filter: brightness(90%);
     }
-}
 
-.line {
-    width: 100%;
-    border: 1px solid grey;
-    margin: 5em 0em 5em 0em;
-}
+    &::placeholder {
+        @include btn-text(25px, 300, 1px);
+        color: $light_color;
+    }
 
-.material-symbols-outlined {
+    &:active {
+        background-color: $light_color;
+        filter: brightness(75%);
+    }
+
     &:hover {
-        transform: scale(1.4);
-        transition: 0.2s;
+        transition: 1s;
+        filter: brightness(75%);
     }
 }
+
 
 @media only screen and (max-width: 798px) {
-    header {
-        bottom: 0;
-    }
+    header {bottom: 0;}
 
-    section {
-        margin-left: 140px;
+    section {width: 100%;
 
-    }
-
-    .songResult {
-        display: block !important;
-        border-bottom: none!important;
-        width: 100%;
-
-        img {
-            margin-bottom: -7px;
+        .songResult {width: 100%;
+            img {margin-bottom: -7px;}
         }
-    }
 
-    #search-area {
-        display: block !important;
-        
-        svg {
-            margin-top: 1em;
+        #search-area {display: block !important;
+            svg {margin-top: 1em;}
         }
     }
 }
@@ -195,54 +161,53 @@ section {
 @media screen and (max-width: 600px) {
     body {
         padding: 0;
+        margin-left: 0;
+
+        header {
+            position: static;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            padding: 25px 0px 3px 0px;
+            border-bottom: 1px solid $darker_color;
+            box-shadow: 0 5px 10px $dark_color;
+            margin-bottom: 5em;
+        }
+
+        li {display: inline;}
+        ul {text-align: center;}
+
+        #logo-container {
+            @include size(100%, auto);
+            position: static;
+        }
     }
 
     section {
         margin: 0 auto;
         width: 100%;
-    }
 
-    header {
-        position: static;
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-        padding: 25px 0px 3px 0px;
-        border-bottom: 1px solid rgb(43, 43, 43);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 5em;
+        #result {text-align: center;}
+        .line {display: none;}
+        .album-cover {@include size(100px !important, 100px !important);}
 
-        li {
-            display: inline;
+        #search-area {
+            display: block;
+            margin-bottom: 5em !important;
+
+            input {border-radius: 8px !important;}
         }
 
-        ul {
-            text-align: center;
+        .songResult {
+            padding: 0.5em 1.5em 1.5em 1.5em;
+            display: block !important;
+            width: 100% !important;
+        }
+
+        #img-container {
+            @include size(70%, auto);
+            .original {width: 100%;}
         }
     }
-
-    #search-area {
-        display: block;
-        margin-bottom: 5em!important;
-
-        input {
-            border-radius: 8px!important;
-        }
-    }
-
-    .songResult {
-        padding: 0.5em 1.5em 1.5em 1.5em;
-    }
-
-    #result {
-        text-align: left;
-    }
-    #big-logo {
-        width: 100%!important;
-        padding: 0em 3em 0em 3em;
-    }
-
-    .line {
-        display: none;
-    }
+    .replacement {display: none;}
 }

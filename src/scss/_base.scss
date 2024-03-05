@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
 $font-stack: 'Poppins';
+$darker_color: #333;
 $primary-color: #464646;
+$linecolor: #b3b3b3;
 $light_color: rgb(255, 255, 255);
 $dark_color: rgb(44, 44, 44);
 $paragraph-text: 'Inter';
@@ -38,4 +40,31 @@ $paragraph-text: 'Inter';
 @mixin align($align, $justify) {
     align-items: $align;
     justify-content: $justify;
+}
+
+@mixin boxspace($box, $padding) {
+    box-sizing: $box;
+    padding: $padding;
+}
+
+@mixin fixed($top, $left) {
+    top: $top;
+    left: $left;
+}
+
+@mixin hovereffect($transform, $transition, $cursor) {
+    transform: $transform;
+    transition: $transition;
+    cursor: $cursor;
+}
+
+@mixin ul($list-style, $align, $padding) {
+    list-style-type: $list-style;
+    text-align: $align;
+    padding: $padding;
+}
+
+@mixin a($text-deco, $color) {
+    text-decoration: $text-deco;
+    color: $color;
 }

@@ -13,6 +13,13 @@ window.onload = () => {
     });
 }
 
+const logoEl = document.getElementById("logo");
+logoEl.addEventListener('click', loadFront, false);
+
+function loadFront() {
+    location.reload();
+}
+
 async function search(song) {
     const input = song.split(" ").join("+");
 
@@ -36,7 +43,7 @@ async function search(song) {
 }
 
 function printSongs(result) {
-    console.log(result.data.slice(0, 5));
+    console.log(result.data.slice(0, 8));
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = "";
 
@@ -61,7 +68,7 @@ function printSongs(result) {
     alternative.appendChild(alternativeText);
     resultDiv.appendChild(alternative);
 
-    result.data.slice(0, 5).forEach((song) => {
+    result.data.slice(0, 8).forEach((song) => {
         const container = document.createElement("div");
         const textContainer = document.createElement("div");
         const iconContainer = document.createElement("div");
@@ -114,7 +121,7 @@ async function showLyrics(artistName, title) {
     const container = document.getElementById("result");
     container.innerHTML = "";
 
-    const abc = document.createElement("p");
+    const abc = document.createElement("div");
     abc.innerHTML = lyrics.split("\n").join("<br>");
     container.appendChild(abc);
 }
@@ -129,12 +136,13 @@ async function getLyrics(artistName, title) {
 
         if (response.ok) {
             const data = await response.json();
+            const lyrics = data.lyrics.substring(data.lyrics.indexOf("\r") + 1);
 
-            return data.lyrics.substring(data.lyrics.indexOf("\r") + 1);
+            return `<h2>${artistName} - ${title}</h2><p>${lyrics}</p>`;
 
         } else {
             if (response.status === 404) {
-                return "Lyrics for this song could not be found";
+                return `<h2>Ops!</h2><p class="center">Unfortunately, we couldn't find the lyrics for this song</p>`;
             } else {
                 console.log("Something went wrong:", response.statusText);
                 return "Lyrics for this song could not be found";
