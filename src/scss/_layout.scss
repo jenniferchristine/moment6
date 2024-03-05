@@ -60,7 +60,10 @@ section {
     }
 
     .material-symbols-outlined {
-        &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
+        &:hover {
+            @include hovereffect(scale(1.4), 0.2s, pointer);
+            color: $happycolor;
+        }
     }
 
     #search-area {
