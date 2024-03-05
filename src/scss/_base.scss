@@ -26,12 +26,12 @@ $paragraph-text: 'Inter';
     color: $textcolor;
 }
 
-@mixin text($align, $font) {
+@mixin textlayout($align, $font) {
     text-align: $align;
     font: $font;
 }
 
-@mixin btn-text($size, $widetext, $space) {
+@mixin textsize($size, $widetext, $space) {
     font-size: $size;
     font-weight: $widetext;
     letter-spacing: $space;
@@ -67,4 +67,9 @@ $paragraph-text: 'Inter';
 @mixin a($text-deco, $color) {
     text-decoration: $text-deco;
     color: $color;
+}
+
+@mixin marginwidth($width, $margin) {
+    width: $width;
+    margin: $margin;
 }

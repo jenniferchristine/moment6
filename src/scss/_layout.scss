@@ -1,14 +1,14 @@
 @use 'base' as *;
 
 body {
-    @include text(left, 100% $font-stack);
+    @include textlayout(left, 100% $font-stack);
     @include color($primary-color, $light_color);
     @include boxspace(border-box, 3em);
     margin-left: 110px;
     gap: 20em;
 
     h1 {text-align: center;}
-    p {@include text(left, 100% $light_color);}
+    p {@include textlayout(left, 100% $light_color);}
 
     h2 {
         font-size: 20px;
@@ -28,29 +28,17 @@ header {
     #logo{&:hover{cursor: pointer;}}
     ul {@include ul(none, left, 0);}
     a {@include a(none, $light_color);}
-}
 
-#img-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 0 auto;
-
-    &:hover .replacement {opacity: 1;}
-}
-
-#logo-container {
-    position: relative;
-    width: 10px;
-    height: 55px;
-
-    &:hover .replacement {opacity: 1;}
+    #logo-container {
+        @include size(10px, 55px);
+        position: relative;
+        &:hover .replacement {opacity: 1;}
+    }
 }
 
 .replacement {
+    @include fixed(0, 0);
     position: absolute;
-    top: 0;
-    left: 0;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
@@ -67,9 +55,8 @@ section {
     .center {text-align: center;}
 
     .line {
-        width: 100%;
+        @include marginwidth(100%, 5em 0em 5em 0em);
         border: 1px solid $linecolor;
-        margin: 5em 0em 5em 0em;
     }
 
     .material-symbols-outlined {
@@ -80,6 +67,14 @@ section {
         @include align(center, center);
         text-align: center;
         display: flex;
+    }
+
+    #img-container {
+        @include size(300px, 300px);
+        position: relative;
+        margin: 0 auto;
+    
+        &:hover .replacement {opacity: 1;}
     }
 
     .songResult {
@@ -112,22 +107,22 @@ section {
 
 input {
     @include maxsize(400px, 50px, 95%);
-    @include btn-text(25px, 900, 1px);
-    @include text(center, 100% $font-stack);
+    @include textsize(25px, 900, 1px);
+    @include textlayout(center, 100% $font-stack);
     @include color($light_color, $light_color);
     border-radius: 5em;
     box-sizing: border-box;
     border: $primary-color 1px solid;
 
     &:focus {
-        @include btn-text(16px, 300, 1px);
+        @include textsize(16px, 300, 1px);
         @include color($light_color, $primary-color);
         outline: 2px $primary-color;
         filter: brightness(90%);
     }
 
     &::placeholder {
-        @include btn-text(25px, 300, 1px);
+        @include textsize(25px, 300, 1px);
         color: $light_color;
     }
 
@@ -141,7 +136,6 @@ input {
         filter: brightness(75%);
     }
 }
-
 
 @media only screen and (max-width: 798px) {
     header {bottom: 0;}
@@ -164,9 +158,8 @@ input {
         margin-left: 0;
 
         header {
+            @include marginwidth(100%, 0 auto);
             position: static;
-            width: 100%;
-            margin: 0 auto;
             text-align: center;
             padding: 25px 0px 3px 0px;
             border-bottom: 1px solid $darker_color;
@@ -184,8 +177,7 @@ input {
     }
 
     section {
-        margin: 0 auto;
-        width: 100%;
+        @include marginwidth(100%, 0 auto);
 
         #result {text-align: center;}
         .line {display: none;}
