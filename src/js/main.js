@@ -11,7 +11,7 @@ window.onload = () => {
 
     searchValue.addEventListener('keypress', async function (e) {
         if (e.key === 'Enter')
-        search(searchValue.value);
+            search(searchValue.value);
     });
 }
 
@@ -54,7 +54,7 @@ function printSongs(result) {
         const paraText = document.createTextNode("Double check your spelling or try searching for both the name of the song and the artist");
         paraErrorEl.appendChild(paraText);
         resultDiv.appendChild(paraErrorEl);
-        
+
         return;
     }
 
@@ -71,7 +71,7 @@ function printSongs(result) {
         container.classList.add("songResult");
         textContainer.classList.add("textContainer");
         const title = document.createElement("p");
-        const titleText = document.createTextNode(song.artist.name+" - "+song.title);
+        const titleText = document.createTextNode(song.artist.name + " - " + song.title);
         title.appendChild(titleText);
         textContainer.appendChild(title);
 
@@ -86,6 +86,10 @@ function printSongs(result) {
         playButton.classList.add("material-symbols-outlined");
         playButton.innerHTML = "play_circle";
         iconContainer.appendChild(playButton);
+
+        playButton.addEventListener('click', async function (e) {
+            await playSong(song.preview);
+        });
 
         const lyricsEl = document.createElement("p");
         lyricsEl.classList.add("lyrics");
@@ -103,6 +107,12 @@ function printSongs(result) {
 
         resultDiv.appendChild(container);
     });
+}
+
+function playSong(previewURL) {
+    console.log(previewURL);
+    const audio = new Audio(previewURL);
+    audio.play();
 }
 
 /* async function search() {

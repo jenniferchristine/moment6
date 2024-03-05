@@ -156,6 +156,13 @@ section {
     margin: 5em 0em 5em 0em;
 }
 
+.material-symbols-outlined {
+    &:hover {
+        transform: scale(1.4);
+        transition: 0.2s;
+    }
+}
+
 @media only screen and (max-width: 798px) {
     header {
         bottom: 0;
