@@ -10,8 +10,8 @@ body {
     flex-direction: column;
     height: 100vh;
 
-    h1 {text-align: center;}
-    p {@include textlayout(left, 100% $light_color);}
+    h1 { text-align: center; }
+    p { @include textlayout(left, 100% $light_color); }
 
     h2 {
         font-size: 20px;
@@ -29,23 +29,22 @@ header {
     box-shadow: 5px 0 10px $dark_color;
 
     #logo:hover{cursor: pointer;}
-    ul {@include ul(none, left, 0); }
-    a {@include a(none, $light_color);}
+    ul { @include ul(none, left, 0); }
+    a { @include a(none, $light_color); }
     li { margin: 2em 0 0 1em; border-bottom: 5px solid transparent;
 
         &:hover {
-            cursor: pointer;
-            border-bottom: 5px solid $light_color;
-            transition: 0.2s;}
+            @include smoothhover(0.2s, pointer);
+            border-bottom: 5px solid $light_color; }
         
-        a {display: block; width: 100%; height: 100%;}
+        a { display: block; width: 100%; height: 100%; }
     }
 
     #logo-container {
         @include size(30%, 20px);
         position: relative;
         padding: 30px;
-        &:hover .replacement {opacity: 1;}
+        &:hover .replacement { opacity: 1; }
 
         .original {
             @include fixed(30, 45);
@@ -79,13 +78,15 @@ section {
     margin: 0 auto;
     text-align:center; 
 
-    #result {text-align: center;}
-    .textContainer {margin-left: 10px;}
-    .album-cover {@include size(150px, 150px);}
-    .center {text-align: center;}
-    .flexbox {display: flex;}
-    #play-container {text-align: center;}
-    .play-container>.material-symbols-outlined{font-size: 100px;}
+    #result { text-align: center; }
+    .textContainer { margin-left: 10px; }
+    .album-cover { @include size(150px, 150px); }
+    .center { text-align: center; }
+    .flexbox { display: flex; }
+    #play-container { text-align: center; }
+    .play-container>.material-symbols-outlined{ font-size: 100px; }
+    #start-page-logo { width: 250px; }
+    #start-page { .material-symbols-outlined:hover {color: rgb(245, 0, 224); } }
 
     .replacement {
         @include fixed(0, 0);
@@ -93,8 +94,6 @@ section {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
     }
-
-    #start-page {.material-symbols-outlined:hover {color: rgb(245, 0, 224);}}
 
     .material-symbols-outlined:hover {
         @include hovereffect(scale(1.4), 0.2s, pointer);
@@ -116,7 +115,7 @@ section {
         @include size(350px, 350px);
         position: relative;
         margin: 0 auto;
-        &:hover .replacement {opacity: 1;}
+        &:hover .replacement { opacity: 1; }
     }
 
     .songResult {
@@ -126,7 +125,7 @@ section {
         justify-content: space-between;
         border-bottom: 0.2px solid $linecolor;
         text-align: left;
-        &:nth-child(even) {background-color: $darker_color;}
+        &:nth-child(even) { background-color: $darker_color; }
     }
 
     .icon-container {
@@ -134,7 +133,7 @@ section {
         align-items: center;
         gap: 1em;
         margin-top: -1em;
-        .lyrics {&:hover {@include hovereffect(scale(1.2), 0.2s, pointer);}}
+        .lyrics { &:hover { @include hovereffect(scale(1.2), 0.2s, pointer); } }
     }
 
     .play-container {
@@ -149,7 +148,7 @@ section {
         background-color: $dark_color;
         &:hover {  
             box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-            transition: 0.2s;}
+            transition: 0.2s; }
     }
 
     #generate-btn {
@@ -164,9 +163,8 @@ section {
 
     #generate-btn:hover {
         @include smoothhover(0.2s, pointer);
-        background-color: $dark_color;
+        @include color($dark_color, $light_color);
         border: 1px solid $dark_color;
-        color: $light_color;
     }
 
     #logo-btn {
@@ -178,7 +176,7 @@ section {
     .search-icon {
         fill: $light_color;
         margin-left: 7px;
-        &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
+        &:hover { @include hovereffect(scale(1.4), 0.2s, pointer); }
     }
 
     .lyrics-container {
@@ -191,15 +189,9 @@ section {
         background: $happycolor;
         color: $primary-color;
       }
-
-      #start-page-logo {
-        width: 200px;
-    }
 }
 
-#start-page-logo:hover {
-    animation: changeColor 6s infinite;
-}
+#start-page-logo:hover { animation: changeColor 6s infinite; }
 
 #play-logo {
     animation: spin 2s forwards; 
@@ -245,17 +237,17 @@ footer {
     padding: 20px;
     display: flex;
     justify-content: center;
-    img {width: 40px;}
     border-top: 1px solid $linecolor;
     width: 350px;
     align-self: center;
-}
+    img { width: 40px; }
 
-  #footer-div>p {
-    border-left: 1px solid $linecolor;
-    padding-left: 1.5em;
-    font-size: 12px;
-  }
+    #footer-div>p {
+        border-left: 1px solid $linecolor;
+        padding-left: 1.5em;
+        font-size: 12px;
+      }
+}
 
   .line {
     @include marginwidth(100%, 2.5em 0em 6em 0em);
@@ -267,18 +259,16 @@ footer {
     section {width: 100%;
 
         .songResult {width: 100%;
-        img {margin-bottom: -7px;}}
+        img { margin-bottom: -7px; } }
 
         #search-area {display: block !important;
-        svg {margin-top: 1em;}}
+        svg { margin-top: 1em; } }
     }
 }
 
 @media screen and (max-width: 600px) {
     body {
-        padding: 0;
-        margin: 0;
-
+        @include space(0, 0);
         main { margin-top: 250px; }
 
         header {
@@ -290,11 +280,11 @@ footer {
             box-shadow: 0 5px 10px $dark_color;
             margin-bottom: 2em;
 
-            br {display: none;}
-            .replacement {display: none;}
+            br { display: none; }
+            .replacement { display: none; }
         }
 
-        li {border-bottom: 0; margin: 0;  }
+        li { border-bottom: 0; margin: 0; }
         li:first-child { margin-left: 0; }
         li:not(:first-child) { margin-left: 1em; }
         ul {
@@ -302,7 +292,6 @@ footer {
             display: flex;
             justify-content: center;
             gap: 1em;
-            
         }
     
         #logo-container {
@@ -310,17 +299,18 @@ footer {
             position: static;
             padding: 10px;
 
-            .original{
+            .original {
                 max-width: 50px;
-                position: static;}
+                position: static; }
         }
 
         #position {
+            height: 30px;
             padding: 0 4px 0 0;
             border-bottom: 3px solid $light_color;
             background-image: linear-gradient(to bottom, 
             rgba(0, 0, 0, 0), 
-            rgb(88, 88, 88) 100%);
+            rgb(112, 112, 112) 100%);
         }
     }
 
@@ -328,18 +318,19 @@ footer {
         @include marginwidth(100%, 0 auto);
         padding: 0em 1.5em 0em 1.5em;
 
-        #result {text-align: center;}
-        .line {display: none;}
-        .album-cover {@include size(100px !important, 100px !important);}
-        #img-container {@include size(70%, auto);}
-        .play-container>.material-symbols-outlined{font-size: 75px!important;}
-        .replacement {display: none;}
-        #generate-btn {width: 95%;}
+        #result { text-align: center; }
+        .line { display: none; }
+        .album-cover { @include size(100px !important, 100px !important); }
+        #img-container { @include size(70%, auto); }
+        .play-container>.material-symbols-outlined{ font-size: 75px !important; }
+        .replacement { display: none; }
+        #generate-btn { width: 95%; }
+        #play-logo { width: 180px; }
 
         #search-area {
             display: block;
             margin-bottom: 5em !important;
-            input {border-radius: 8px !important;}
+            input { border-radius: 8px !important; }
         }
 
         .songResult {
@@ -356,10 +347,6 @@ footer {
         #start-page-logo {
             width: 130px;
             margin-top: 90px;
-        }
-
-        #play-logo {
-            width: 180px;
         }
 
         .play-container {

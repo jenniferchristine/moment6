@@ -79,3 +79,8 @@ $paragraph-text: 'Inter';
     width: $width;
     margin: $margin;
 }
+
+@mixin space($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
