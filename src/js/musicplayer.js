@@ -16,8 +16,10 @@ async function playSong() {
     audio = new Audio(song.link);
     audio.play();
 
-    const playContainer = document.getElementById("play-container");
-    playContainer.innerHTML = "";
+    const container = document.getElementById("start-page");
+    const playContainer = document.createElement("div");
+    playContainer.classList.add("play-container");
+    container.innerHTML = "";
 
     const pauseBtn = document.createElement("span");
     pauseBtn.classList.add("material-symbols-outlined");
@@ -38,6 +40,8 @@ async function playSong() {
     const titleName = document.createTextNode(song.title);
     titleEl.appendChild(titleName);
     playContainer.appendChild(titleEl);
+
+    container.appendChild(playContainer);
 }
 
 function toggleMusic(audio, pauseBtn) {
