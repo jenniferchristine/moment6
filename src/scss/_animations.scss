@@ -2,13 +2,13 @@
 
 @keyframes changeColor {
     0% {
-        filter: hue-rotate(260deg); // Start med rosa (0°)
+        filter: hue-rotate(260deg);
       }
       50% {
-        filter: hue-rotate(60deg); // Gå till blå (240°)
+        filter: hue-rotate(60deg);
       }
       80% {
-        filter: hue-rotate(240deg); // Sluta med gul (60°)
+        filter: hue-rotate(240deg);
       }
 }
 
@@ -17,6 +17,6 @@
         transform: rotate(90deg)
     }
     50% {
-      transform: rotate(0deg); // Gör ett helt varv (360 grader) på halva tiden
+      transform: rotate(0deg);
     }
   }

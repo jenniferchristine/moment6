@@ -4,9 +4,11 @@
 body {
     @include textlayout(left, 100% $font-stack);
     @include color($primary-color, $light_color);
-    @include boxspace(border-box, 3em);
+    @include boxspace(border-box, 3em 3em 0em 3em);
     margin-left: 150px;
-    gap: 20em;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 
     h1 {text-align: center;}
     p {@include textlayout(left, 100% $light_color);}
@@ -27,14 +29,16 @@ header {
     box-shadow: 5px 0 10px $dark_color;
 
     #logo:hover{cursor: pointer;}
-    ul {@include ul(none, left, 0);}
+    ul {@include ul(none, left, 0); }
     a {@include a(none, $light_color);}
-    li {margin: 1em 0em 2em 1em;
+    li { margin: 2em 0 0 1em; border-bottom: 5px solid transparent;
 
         &:hover {
             cursor: pointer;
             border-bottom: 5px solid $light_color;
             transition: 0.2s;}
+        
+        a {display: block; width: 100%; height: 100%;}
     }
 
     #logo-container {
@@ -91,11 +95,6 @@ section {
     }
 
     #start-page {.material-symbols-outlined:hover {color: rgb(245, 0, 224);}}
-
-    .line {
-        @include marginwidth(100%, 2.5em 0em 6em 0em);
-        border: 1px solid $linecolor;
-    }
 
     .material-symbols-outlined:hover {
         @include hovereffect(scale(1.4), 0.2s, pointer);
@@ -204,7 +203,8 @@ section {
 
 #play-logo {
     animation: spin 2s forwards; 
-    padding-top: 3em;
+    padding: 3em 0em 3em 0em;
+    width: 350px;
 }
 
 input {
@@ -239,6 +239,29 @@ input {
     }
 }
 
+footer {
+    margin-top: auto;
+    gap: 1em;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    img {width: 40px;}
+    border-top: 1px solid $linecolor;
+    width: 350px;
+    align-self: center;
+}
+
+  #footer-div>p {
+    border-left: 1px solid $linecolor;
+    padding-left: 1.5em;
+    font-size: 12px;
+  }
+
+  .line {
+    @include marginwidth(100%, 2.5em 0em 6em 0em);
+    border: 1px solid $linecolor;
+}
+
 @media only screen and (max-width: 798px) {
     header {bottom: 0;}
     section {width: 100%;
@@ -256,22 +279,32 @@ input {
         padding: 0;
         margin: 0;
 
+        main { margin-top: 250px; }
+
         header {
             @include marginwidth(100%, 0 auto);
-            position: static;
+            height: 200px !important;
             text-align: center;
             padding: 25px 0px 3px 0px;
             border-bottom: 1px solid $darker_color;
             box-shadow: 0 5px 10px $dark_color;
-            margin-bottom: 5em;
+            margin-bottom: 2em;
 
             br {display: none;}
             .replacement {display: none;}
         }
 
-        li {display: inline;border-bottom: 0;}
-        ul {text-align: center;}
-
+        li {border-bottom: 0; margin: 0;  }
+        li:first-child { margin-left: 0; }
+        li:not(:first-child) { margin-left: 1em; }
+        ul {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+            
+        }
+    
         #logo-container {
             @include size(100%, auto);
             position: static;
@@ -283,7 +316,7 @@ input {
         }
 
         #position {
-            padding: 0.5em 0.3em 0.5em 0em;
+            padding: 0 4px 0 0;
             border-bottom: 3px solid $light_color;
             background-image: linear-gradient(to bottom, 
             rgba(0, 0, 0, 0), 
@@ -293,6 +326,7 @@ input {
 
     section {
         @include marginwidth(100%, 0 auto);
+        padding: 0em 1.5em 0em 1.5em;
 
         #result {text-align: center;}
         .line {display: none;}
@@ -315,13 +349,17 @@ input {
         }
 
         .original {
-            width: 50%;
+            width: 190px;
             position: static;
         }
 
         #start-page-logo {
-            width: 50%;
+            width: 130px;
             margin-top: 90px;
+        }
+
+        #play-logo {
+            width: 180px;
         }
 
         .play-container {
@@ -334,5 +372,12 @@ input {
             border-radius: 0;
             padding: 1em 1.5em 1em 1.5em;
         }
+    }
+
+    footer {
+        border-top: 1px solid $linecolor;
+        width: 100%;
+        justify-content: left;
+        margin-left: 1.5em;
     }
 }
