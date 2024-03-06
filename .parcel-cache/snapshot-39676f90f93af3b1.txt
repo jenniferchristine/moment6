@@ -24,7 +24,7 @@
 122C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\generator\sourceMap.js133540268246932934 0
 108C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\runtime-js\src\helpers\browser\prefetch-loader.js133540268238824612 0
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\utility-types\package.json133540268229918455 0
-42C:\Users\jenif\Desktop\dt211g\moment6\dist133541612696950964 1
+42C:\Users\jenif\Desktop\dt211g\moment6\dist133541621205089180 1
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@swc\helpers\_\_class_private_field_init133540268250104409 1
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\follow-redirects\README.md133541480080994805 0
 80C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@babel\highlight\node_modules133540268220862700 1
@@ -133,7 +133,7 @@
 98C:\Users\jenif\Desktop\dt211g\moment6\node_modules\csso\node_modules\css-tree\cjs\parser\index.cjs133540268241497459 0
 52C:\Users\jenif\Desktop\dt211g\moment6\src\js\main.js133541612696420297 0
 74C:\Users\jenif\Desktop\dt211g\moment6\node_modules\weak-lru-cache\index.js133540268226976331 0
-59C:\Users\jenif\Desktop\dt211g\moment6\src\js\musicplayer.js133541612672627018 0
+59C:\Users\jenif\Desktop\dt211g\moment6\src\js\musicplayer.js133541621204780012 0
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\css-tree\lib\syntax\node\SelectorList.js133540268250633001 0
 90C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\features\innertext.js133540268254572450 0
 98C:\Users\jenif\Desktop\dt211g\moment6\node_modules\css-select\node_modules\domutils\lib\feeds.d.ts133540268239542687 0
@@ -2625,7 +2625,7 @@
 86C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@swc\helpers\_\_update\package.json133540268252368349 0
 82C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\regions\GI.js133540268253525249 0
 87C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\logger.js133541480081583234 0
-61C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js133541612672886327 0
+61C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js133541621205039320 0
 96C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\path-rewriter.d.ts133541480081872459 0
 107C:\Users\jenif\Desktop\dt211g\moment6\node_modules\csso\node_modules\css-tree\lib\syntax\node\Percentage.js133540268250214119 0
 94C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\path-rewriter.js133541480081593208 0
@@ -6277,6 +6277,6 @@
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping3.2.aada5df0.png133541594243025521 0
 61C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css133541594243514205 0
 65C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css.map133541594243544126 0
-65C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js.map133541612672936196 0
 60C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js133541612696921043 0
 64C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js.map133541612696940992 0
+65C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js.map133541621205069239 0

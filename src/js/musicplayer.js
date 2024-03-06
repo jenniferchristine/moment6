@@ -16,8 +16,18 @@ async function playSong() {
 
     const song = await getRandomSong(playlist[random].id);
 
-    // rita ut
-    
+    const artistEl = document.createElement("h2");
+    const artistName = document.createTextNode(song.artist);
+    artistEl.appendChild(artistName);
+    playContainer.appendChild(artistEl);
+
+    const titleEl = document.createElement("p");
+    const titleName = document.createTextNode(song.title);
+    titleEl.appendChild(titleName);
+    playContainer.appendChild(titleEl);
+
+    const audio = new Audio(song.link);
+    audio.play();
 }
 
 async function getRandomSong(id) {
