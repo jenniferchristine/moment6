@@ -184,6 +184,7 @@ section {
         background-color: $darker_color;
         border-radius: 2em;
         padding: 2em 4em 2em 4em;
+        margin-bottom: 6em;
     }
 
     ::selection {
@@ -317,7 +318,7 @@ footer {
 
     section {
         @include marginwidth(100%, 0 auto);
-        padding: 0em 1.5em 0em 1.5em;
+
 
         #result { text-align: center; }
         .line { display: none; }
@@ -327,6 +328,7 @@ footer {
         .replacement { display: none; }
         #generate-btn { width: 95%; }
         #play-logo { width: 180px; }
+        #info-container { padding: 0em 1em 0em 1em; }
 
         #search-area {
             display: block;
@@ -353,12 +355,12 @@ footer {
         .play-container {
             border-radius: 0!important;
             margin: 3.5em 1em 0em 1em;
-            box-shadow: $dark_color 0 8px 15px;
+            box-shadow: none;
         }
 
         .lyrics-container {
             border-radius: 0;
-            padding: 1em 1.5em 1em 1.5em;
+            padding: 1em 1em 1em 1em;
         }
     }
 
