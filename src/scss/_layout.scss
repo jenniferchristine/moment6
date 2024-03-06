@@ -28,8 +28,16 @@ header {
     #logo:hover{cursor: pointer;}
     ul {@include ul(none, left, 0);}
     a {@include a(none, $light_color);}
+
     li {margin: 1em 0em 2em 1em;
-    border-bottom: 1px solid $linecolor;}
+    border-bottom: 1px solid $linecolor;
+
+        &:hover {
+            cursor: pointer;
+            border-bottom: 5px solid $light_color;
+            transition: 0.2s;
+        }
+    }
 
     #logo-container {
         @include size(10px, 55px);

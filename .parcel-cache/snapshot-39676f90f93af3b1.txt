@@ -114,7 +114,7 @@
 122C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\generator\sourceMap.js133542090411099128 0
 108C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\runtime-js\src\helpers\browser\prefetch-loader.js133542090406172315 0
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\utility-types\package.json133542090400976229 0
-42C:\Users\jenif\Desktop\dt211g\moment6\dist133542135502748940 1
+42C:\Users\jenif\Desktop\dt211g\moment6\dist133542142436069593 1
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@swc\helpers\_\_class_private_field_init133542090413183547 1
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\follow-redirects\README.md133542090401145778 0
 79C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\transformer-html\src133542090401295379 1
@@ -198,7 +198,7 @@
 96C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\features\text-decoration.js133542090418748649 0
 96C:\Users\jenif\Desktop\dt211g\moment6\node_modules\binary-extensions\binary-extensions.json.d.ts133542090400377831 0
 58C:\Users\jenif\Desktop\dt211g\moment6\node_modules\is-json133542090400617190 1
-59C:\Users\jenif\Desktop\dt211g\moment6\src\scss\_layout.scss133542136797478942 0
+59C:\Users\jenif\Desktop\dt211g\moment6\src\scss\_layout.scss133542142435552261 0
 74C:\Users\jenif\Desktop\dt211g\moment6\node_modules\weak-lru-cache\index.js133542090398722266 0
 59C:\Users\jenif\Desktop\dt211g\moment6\src\js\musicplayer.js133542078318209314 0
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\css-tree\lib\syntax\node\SelectorList.js133542090413532613 0
@@ -6290,5 +6290,5 @@
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping2.2.68d14047.png133541420465389149 0
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping3.2.93f5d8aa.png133542037921453853 0
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping3.2.aada5df0.png133542090887614073 0
-61C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css133542135502699066 0
-65C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css.map133542135502739264 0
+61C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css133542142436039686 0
+65C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css.map133542142436059904 0
