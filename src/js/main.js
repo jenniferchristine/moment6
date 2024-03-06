@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 window.onload = () => {
     const searchValue = document.getElementById("searchValue");
@@ -118,6 +118,7 @@ function printSongs(result) {
 
 async function showLyrics(artistName, title) {
     const lyrics = await getLyrics(artistName, title);
+    console.log(lyrics);
     const container = document.getElementById("result");
     container.innerHTML = "";
 
