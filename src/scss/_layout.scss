@@ -1,5 +1,6 @@
 @use 'base' as *;
 @use 'animations' as *;
+@use 'component' as *;
 
 body {
     @include textlayout(left, 100% $font-stack);
