@@ -1,0 +1,31 @@
+@use 'base' as *;
+
+@keyframes changeColor {
+    0% {
+        filter: hue-rotate(0deg); // Start med rosa (0°)
+      }
+      50% {
+        filter: hue-rotate(240deg); // Gå till blå (240°)
+      }
+      80% {
+        filter: hue-rotate(60deg); // Sluta med gul (60°)
+      }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(90deg)
+    }
+    50% {
+      transform: rotate(0deg); // Gör ett helt varv (360 grader) på halva tiden
+    }
+  }
+
+#start-page-logo:hover {
+    animation: changeColor 1s;
+}
+
+#play-logo {
+    animation: spin 5s forwards; 
+    padding-top: 3em;
+}

@@ -4,7 +4,7 @@ body {
     @include textlayout(left, 100% $font-stack);
     @include color($primary-color, $light_color);
     @include boxspace(border-box, 3em);
-    margin-left: 110px;
+    margin-left: 150px;
     gap: 20em;
 
     h1 {text-align: center;}
@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    @include size(110px, 100%);
+    @include size(150px, 100%);
     @include color($darker_color, $light_color);
     @include boxspace(border-box, 0);
     @include fixed(0, 0);
@@ -37,19 +37,19 @@ header {
     }
 
     #logo-container {
-        @include size(auto, 20px);
+        @include size(30%, 20px);
         position: relative;
         padding: 30px;
         &:hover .replacement {opacity: 1;}
 
         .original {
-            @include fixed(25, 25);
+            @include fixed(30, 45);
             position: absolute;
             width: 50%;
         }
 
         .replacement {
-            @include fixed(25, 25);
+            @include fixed(30, 45);
             position: absolute;
             width: 50%;
             opacity: 0;
