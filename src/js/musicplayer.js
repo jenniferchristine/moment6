@@ -1,20 +1,32 @@
 "use strict";
 
-const playContainer = document.getElementById("play-container");
-playContainer.addEventListener('click', playSong, false);
+let playlist;
+let audio;
 
-window.onload = () => {
-    const playButton = document.createElement("span");
-    playButton.classList.add("material-symbols-outlined");
-    playButton.innerHTML = "play_circle";
-    playContainer.appendChild(playButton);
+window.onload = async () => {
+    playlist = await getPlaylist();
+    document.getElementById("generate-btn").onclick = () => playSong();
 };
 
 async function playSong() {
-    const playlist = await getPlaylist();
-    const random = Math.floor(Math.random() * playlist.length);
+    const song = await getRandomSong();
 
-    const song = await getRandomSong(playlist[random].id);
+    if (audio) if (!audio.paused) audio.pause();
+    console.log("Försöker spela låt...")
+    audio = new Audio(song.link);
+    audio.play();
+
+    const playContainer = document.getElementById("play-container");
+    playContainer.innerHTML = "";
+
+    const pauseBtn = document.createElement("span");
+    pauseBtn.classList.add("material-symbols-outlined");
+    pauseBtn.innerHTML = "pause_circle";
+    pauseBtn.onclick = () => {
+        toggleMusic(audio, pauseBtn);
+    };
+
+    playContainer.appendChild(pauseBtn);
 
     const artistEl = document.createElement("h2");
     const artistName = document.createTextNode(song.artist);
@@ -22,16 +34,25 @@ async function playSong() {
     playContainer.appendChild(artistEl);
 
     const titleEl = document.createElement("p");
+    titleEl.classList.add("center");
     const titleName = document.createTextNode(song.title);
     titleEl.appendChild(titleName);
     playContainer.appendChild(titleEl);
-
-    const audio = new Audio(song.link);
-    audio.play();
 }
 
-async function getRandomSong(id) {
-    const url = "https://deezerdevs-deezer.p.rapidapi.com/track/" + id;
+function toggleMusic(audio, pauseBtn) {
+    if (audio.paused) {
+        audio.play();
+        pauseBtn.innerHTML = "pause_circle";
+    } else {
+        audio.pause();
+        pauseBtn.innerHTML = "play_circle";
+    }
+}
+
+async function getRandomSong() {
+    const random = Math.floor(Math.random() * playlist.length);
+    const url = "https://deezerdevs-deezer.p.rapidapi.com/track/" + playlist[random].id;
     const options = {
         method: 'GET',
         headers: {
@@ -44,9 +65,11 @@ async function getRandomSong(id) {
 
     if (response.ok) {
         const data = await response.json();
-        if (data.preview === "") {
-            playSong();
+        if (!data.artist || !data.preview) {
+            console.log("Funkar inte");
+            getRandomSong();
         } else {
+            console.log("Funkar");
             return {
                 title: data.title,
                 artist: data.artist.name,
