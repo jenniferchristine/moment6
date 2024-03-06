@@ -28,21 +28,33 @@ header {
     #logo:hover{cursor: pointer;}
     ul {@include ul(none, left, 0);}
     a {@include a(none, $light_color);}
-
     li {margin: 1em 0em 2em 1em;
 
         &:hover {
             cursor: pointer;
             border-bottom: 5px solid $light_color;
-            transition: 0.2s;
-        }
+            transition: 0.2s;}
     }
 
     #logo-container {
-        @include size(10px, 55px);
+        @include size(auto, 20px);
         position: relative;
-        padding: 25px;
+        padding: 30px;
         &:hover .replacement {opacity: 1;}
+
+        .original {
+            @include fixed(25, 25);
+            position: absolute;
+            width: 50%;
+        }
+
+        .replacement {
+            @include fixed(25, 25);
+            position: absolute;
+            width: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
     }
 
     #position {
@@ -53,13 +65,6 @@ header {
         rgba(0, 0, 0, 0) 100%);
         border-bottom: 5px solid $light_color;
     }
-}
-
-.replacement {
-    @include fixed(0, 0);
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
 }
 
 section {
@@ -76,6 +81,15 @@ section {
     .flexbox {display: flex;}
     #play-container {text-align: center;}
     .play-container>.material-symbols-outlined{font-size: 100px;}
+
+    .replacement {
+        @include fixed(0, 0);
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    #start-page {.material-symbols-outlined:hover {color: rgb(245, 0, 224);}}
 
     .line {
         @include marginwidth(100%, 2.5em 0em 6em 0em);
@@ -158,6 +172,7 @@ section {
     #logo-btn {
         padding: 1em;
         box-sizing: border-box;
+        width: 55px;
     }
     
     .search-icon {
@@ -178,7 +193,7 @@ section {
       }
 
       #start-page-logo {
-        width: 400px;
+        width: 200px;
     }
 }
 
@@ -229,7 +244,7 @@ input {
 @media screen and (max-width: 600px) {
     body {
         padding: 0;
-        margin-left: 0;
+        margin: 0;
 
         header {
             @include marginwidth(100%, 0 auto);
@@ -241,6 +256,7 @@ input {
             margin-bottom: 5em;
 
             br {display: none;}
+            .replacement {display: none;}
         }
 
         li {display: inline;border-bottom: 0;}
@@ -249,7 +265,11 @@ input {
         #logo-container {
             @include size(100%, auto);
             position: static;
-            padding: 5px;
+            padding: 10px;
+
+            .original{
+                max-width: 50px;
+                position: static;}
         }
 
         #position {
@@ -285,7 +305,7 @@ input {
         }
 
         .original {
-            width: 100%;
+            width: 50%;
             position: static;
         }
 
