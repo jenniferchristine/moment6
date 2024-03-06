@@ -1,4 +1,5 @@
 @use 'base' as *;
+@use 'animations' as *;
 
 body {
     @include textlayout(left, 100% $font-stack);
@@ -195,6 +196,15 @@ section {
       #start-page-logo {
         width: 200px;
     }
+}
+
+#start-page-logo:hover {
+    animation: changeColor 6s infinite;
+}
+
+#play-logo {
+    animation: spin 2s forwards; 
+    padding-top: 3em;
 }
 
 input {
