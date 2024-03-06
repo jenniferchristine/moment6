@@ -47,13 +47,11 @@ header {
     }
 
     #position {
-        background-color: $happycolor;
+        background-color: $darker_color;
         padding: 0.5em 0em 0.5em 0em;
-        background-image: linear-gradient(to right, 
-        rgba(0, 0, 0, 0), 
-        rgb(68, 68, 68) 100%);
-        border-top-left-radius: 0.3em;
-        border-bottom-left-radius: 0.3em;
+        background-image: linear-gradient(to left, 
+        rgb(99, 99, 99),
+        rgba(0, 0, 0, 0) 100%);
     }
 }
 
@@ -168,6 +166,17 @@ section {
         margin-left: 7px;
         &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
     }
+
+    .lyrics-container {
+        background-color: $darker_color;
+        border-radius: 2em;
+        padding: 2em 4em 2em 4em;
+    }
+
+    ::selection {
+        background: $happycolor;
+        color: $primary-color;
+      }
 }
 
 input {
@@ -227,11 +236,12 @@ input {
             border-bottom: 1px solid $darker_color;
             box-shadow: 0 5px 10px $dark_color;
             margin-bottom: 5em;
+
+            br {display: none;}
         }
 
         li {display: inline;border-bottom: 0;}
         ul {text-align: center;}
-        br {display: none;}
 
         #logo-container {
             @include size(100%, auto);
@@ -279,10 +289,20 @@ input {
             position: static;
         }
 
+        #start-page-logo {
+            width: 50%;
+            margin-top: 90px;
+        }
+
         .play-container {
             border-radius: 0!important;
             margin: 3.5em 1em 0em 1em;
             box-shadow: $dark_color 0 8px 15px;
+        }
+
+        .lyrics-container {
+            border-radius: 0;
+            padding: 1em 1.5em 1em 1.5em;
         }
     }
 }

@@ -13,13 +13,6 @@ window.onload = () => {
     });
 }
 
-const logoEl = document.getElementById("logo");
-logoEl.addEventListener('click', loadFront, false);
-
-function loadFront() {
-    location.reload();
-}
-
 async function search(song) {
     const input = song.split(" ").join("+");
 
@@ -123,6 +116,7 @@ async function showLyrics(artistName, title) {
     container.innerHTML = "";
 
     const abc = document.createElement("div");
+    abc.classList.add("lyrics-container");
     abc.innerHTML = lyrics.split("\n").join("<br>");
     container.appendChild(abc);
 }
