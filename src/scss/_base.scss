@@ -59,6 +59,11 @@ $paragraph-text: 'Inter';
     cursor: $cursor;
 }
 
+@mixin smoothhover($transition, $cursor) {
+    transition: $transition;
+    cursor: $cursor;
+}
+
 @mixin ul($list-style, $align, $padding) {
     list-style-type: $list-style;
     text-align: $align;
