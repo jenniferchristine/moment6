@@ -101,6 +101,20 @@ section {
         margin-top: -1em;
         .lyrics {&:hover {@include hovereffect(scale(1.2), 0.2s, pointer);}}
     }
+
+    .btn-container {display: flex;}
+
+    #generate-btn {
+        height: 50px;
+        padding: 1em 2em 2.5em 2em;
+        font: 100% $paragraph-text;
+        border-radius: 1em;
+        margin: 0 auto;
+        background-color: $happycolor;
+        border: 3px solid $dark_color;
+        color: $primary-color;
+
+    }
 }
 
 .search-icon {
@@ -204,4 +218,8 @@ input {
         }
     }
     .replacement {display: none;}
+
+    #generate-btn {
+        width: 95%;
+    }
 }
