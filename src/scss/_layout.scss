@@ -25,7 +25,7 @@ header {
     border-right: 1px solid $dark_color;
     box-shadow: 5px 0 10px $dark_color;
 
-    #logo{&:hover{cursor: pointer;}}
+    #logo:hover{cursor: pointer;}
     ul {@include ul(none, left, 0);}
     a {@include a(none, $light_color);}
 
@@ -54,20 +54,16 @@ section {
     .album-cover {@include size(150px, 150px);}
     .center {text-align: center;}
 
-    #play-container {
-        text-align: center;
-    }
+    #play-container {text-align: center;}
 
     .line {
         @include marginwidth(100%, 5em 0em 5em 0em);
         border: 1px solid $linecolor;
     }
 
-    .material-symbols-outlined {
-        &:hover {
-            @include hovereffect(scale(1.4), 0.2s, pointer);
-            color: $happycolor;
-        }
+    .material-symbols-outlined:hover {
+        @include hovereffect(scale(1.4), 0.2s, pointer);
+        color: $happycolor;
     }
 
     #search-area {
@@ -76,11 +72,15 @@ section {
         display: flex;
     }
 
+    .original {
+        @include fixed(0, 0);
+        position: absolute;
+    }
+
     #img-container {
-        @include size(300px, 300px);
+        @include size(350px, 350px);
         position: relative;
         margin: 0 auto;
-    
         &:hover .replacement {opacity: 1;}
     }
 
@@ -91,7 +91,6 @@ section {
         justify-content: space-between;
         border-bottom: 0.2px solid $linecolor;
         text-align: left;
-
         &:nth-child(even) {background-color: $darker_color;}
     }
 
@@ -100,7 +99,6 @@ section {
         align-items: center;
         gap: 1em;
         margin-top: -1em;
-
         .lyrics {&:hover {@include hovereffect(scale(1.2), 0.2s, pointer);}}
     }
 }
@@ -108,7 +106,6 @@ section {
 .search-icon {
     fill: $light_color;
     margin-left: 7px;
-
     &:hover {@include hovereffect(scale(1.4), 0.2s, pointer);}
 }
 
@@ -146,15 +143,14 @@ input {
 
 @media only screen and (max-width: 798px) {
     header {bottom: 0;}
-
     section {width: 100%;
 
         .songResult {width: 100%;
-            img {margin-bottom: -7px;}
+        img {margin-bottom: -7px;}
         }
 
         #search-area {display: block !important;
-            svg {margin-top: 1em;}
+        svg {margin-top: 1em;}
         }
     }
 }
@@ -185,15 +181,14 @@ input {
 
     section {
         @include marginwidth(100%, 0 auto);
-
         #result {text-align: center;}
         .line {display: none;}
         .album-cover {@include size(100px !important, 100px !important);}
+        #img-container {@include size(70%, auto);}
 
         #search-area {
             display: block;
             margin-bottom: 5em !important;
-
             input {border-radius: 8px !important;}
         }
 
@@ -203,9 +198,9 @@ input {
             width: 100% !important;
         }
 
-        #img-container {
-            @include size(70%, auto);
-            .original {width: 100%;}
+        .original {
+            width: 100%;
+            position: static;
         }
     }
     .replacement {display: none;}
