@@ -19,7 +19,7 @@ body {
 header {
     @include size(110px, 100%);
     @include color($darker_color, $light_color);
-    @include boxspace(border-box, 20px);
+    @include boxspace(border-box, 0);
     @include fixed(0, 0);
     position: fixed;
     border-right: 1px solid $dark_color;
@@ -28,13 +28,28 @@ header {
     #logo:hover{cursor: pointer;}
     ul {@include ul(none, left, 0);}
     a {@include a(none, $light_color);}
+    li {margin: 1em 0em 2em 1em;
+    border-bottom: 1px solid $linecolor;}
 
     #logo-container {
         @include size(10px, 55px);
         position: relative;
+        padding: 25px;
         &:hover .replacement {opacity: 1;}
     }
+
+    #position {
+        background-color: $happycolor;
+        padding: 0.5em 0em 0.5em 0em;
+        background-image: linear-gradient(to right, 
+        rgba(0, 0, 0, 0), 
+        rgb(68, 68, 68)
+    100%);
+    border-top-left-radius: 0.3em;
+    border-bottom-left-radius: 0.3em;
+    }
 }
+
 
 .replacement {
     @include fixed(0, 0);
@@ -144,16 +159,13 @@ section {
     }
 }
 
-.flexbox {
-    display: flex;
-}
+.flexbox {display: flex;}
 
 #logo-btn {
     padding: 1em;
     box-sizing: border-box;
     width: 55px;
 }
-
 
 .search-icon {
     fill: $light_color;
@@ -198,12 +210,10 @@ input {
     section {width: 100%;
 
         .songResult {width: 100%;
-        img {margin-bottom: -7px;}
-        }
+        img {margin-bottom: -7px;}}
 
         #search-area {display: block !important;
-        svg {margin-top: 1em;}
-        }
+        svg {margin-top: 1em;}}
     }
 }
 
@@ -222,12 +232,26 @@ input {
             margin-bottom: 5em;
         }
 
-        li {display: inline;}
+        li {display: inline;border-bottom: 0;}
         ul {text-align: center;}
 
         #logo-container {
             @include size(100%, auto);
             position: static;
+            padding: 5px;
+        }
+
+        br {display: none;}
+
+        #position {
+            padding: 0.5em 0.3em 0.5em 0em;
+            border-bottom: 1px solid $linecolor;
+            background-image: linear-gradient(to bottom, 
+            rgba(0, 0, 0, 0), 
+            rgb(68, 68, 68) 100%);
+            border-top-left-radius: 0.3em;
+            border-top-right-radius: 0.3em;
+            border-bottom-left-radius: 0;
         }
     }
 
@@ -255,19 +279,14 @@ input {
             position: static;
         }
     }
-    .replacement {display: none;}
 
-    #generate-btn {
-        width: 95%;
-    }
+    .play-container>.material-symbols-outlined{font-size: 75px!important;}
+    .replacement {display: none;}
+    #generate-btn {width: 95%;}
 
     .play-container {
         border-radius: 0!important;
         margin: 3.5em 1em 0em 1em;
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
-    }
-
-    .play-container>.material-symbols-outlined{
-        font-size: 75px!important;
     }
 }
