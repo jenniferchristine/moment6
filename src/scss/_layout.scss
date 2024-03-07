@@ -1,6 +1,5 @@
 @use 'base' as *;
 @use 'animations' as *;
-@use 'component' as *;
 
 body {
     @include textlayout(left, 100% $font-stack);
@@ -265,7 +264,7 @@ footer {
 @media screen and (max-width: 600px) {
     body {
         @include space(0, 0);
-        
+
         main { margin: 250px 0 0; }
 
         header {
