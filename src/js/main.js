@@ -1,5 +1,8 @@
 "use strict";
 
+let isPlaying = false;
+let audio = null;
+
 window.onload = () => {
     const searchValue = document.getElementById("searchValue");
 
@@ -86,7 +89,7 @@ function printSongs(result) {
         iconContainer.appendChild(playButton);
 
         playButton.onclick = () => {
-            playSong(song.preview, playButton);
+            playAndToggle(song.preview, playButton);
         };
 
         const lyricsEl = document.createElement("p");
@@ -149,22 +152,35 @@ async function getLyrics(artistName, title) {
     }
 }
 
-function playSong(previewURL, btn) {
-    console.log(previewURL);
-    const audio = new Audio(previewURL);
+function playAndToggle(previewURL, btn) {
+    // första låten
+    if (audio === null) {
+        audio = new Audio(previewURL);
+        audio.play();
+        btn.innerHTML = "pause_circle";
+        isPlaying = true;
+        return;
+    }
 
-    let isPlaying = false;
+    // om ny låt
+    if (audio.src != previewURL) {
+        const btns = document.querySelectorAll(".icon-container span");
+        Array.from(btns).forEach((btn) => btn.innerHTML = "play_circle");
+        audio.pause();
+        audio = new Audio(previewURL);
+        audio.play();
+        btn.innerHTML = "pause_circle";
+        isPlaying = true;
+        return;
+    }
 
-    btn.onclick = () => {
-
-        if (isPlaying) {
-            audio.pause();
-            isPlaying = false;
-            btn.innerHTML = "play_circle";
-        } else {
-            audio.play();
-            isPlaying = true;
-            btn.innerHTML = "pause_circle";
-        }
-    };
+    if (isPlaying === false) { // om låten är pausad
+        audio.play();
+        btn.innerHTML = "pause_circle";
+        isPlaying = true;
+    } else { // om låten spelas just nu
+        audio.pause();
+        isPlaying = false;
+        btn.innerHTML = "play_circle";
+    }
 }
