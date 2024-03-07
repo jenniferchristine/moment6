@@ -85,9 +85,9 @@ function printSongs(result) {
         playButton.innerHTML = "play_circle";
         iconContainer.appendChild(playButton);
 
-        playButton.addEventListener('click', async function (e) {
-            await playSong(song.preview);
-        });
+        playButton.onclick = () => {
+            playSong(song.preview, playButton);
+        };
 
         const lyricsEl = document.createElement("p");
         lyricsEl.classList.add("lyrics");
@@ -149,8 +149,22 @@ async function getLyrics(artistName, title) {
     }
 }
 
-function playSong(previewURL) {
+function playSong(previewURL, btn) {
     console.log(previewURL);
     const audio = new Audio(previewURL);
-    audio.play();
+
+    let isPlaying = false;
+
+    btn.onclick = () => {
+
+        if (isPlaying) {
+            audio.pause();
+            isPlaying = false;
+            btn.innerHTML = "play_circle";
+        } else {
+            audio.play();
+            isPlaying = true;
+            btn.innerHTML = "pause_circle";
+        }
+    };
 }
