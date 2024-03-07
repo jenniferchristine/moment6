@@ -5,7 +5,7 @@
 body {
     @include textlayout(left, 100% $font-stack);
     @include color($primary-color, $light_color);
-    @include boxspace(border-box, 3em 3em 0em 3em);
+    @include boxspace(border-box, 3em 3em 0 3em);
     margin-left: 150px;
     display: flex;
     flex-direction: column;
@@ -13,11 +13,7 @@ body {
 
     h1 { text-align: center; }
     p { @include textlayout(left, 100% $light_color); }
-
-    h2 {
-        font-size: 20px;
-        text-align: center;
-    }
+    h2 { font-size: 20px;text-align: center; }
 }
 
 header {
@@ -29,7 +25,6 @@ header {
     border-right: 1px solid $dark_color;
     box-shadow: 5px 0 10px $dark_color;
 
-    #logo:hover{cursor: pointer;}
     ul { @include ul(none, left, 0); }
     a { @include a(none, $light_color); }
     li { margin: 2em 0 0 1em; border-bottom: 5px solid transparent;
@@ -41,6 +36,8 @@ header {
         a { display: block; width: 100%; height: 100%; }
     }
 
+    #logo:hover { cursor: pointer; }
+
     #logo-container {
         @include size(30%, 20px);
         position: relative;
@@ -50,24 +47,22 @@ header {
         .original {
             @include fixed(30, 45);
             position: absolute;
-            width: 50%;
-        }
+            width: 50%; }
 
         .replacement {
             @include fixed(30, 45);
             position: absolute;
             width: 50%;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-        }
+            transition: opacity 0.3s ease-in-out; }
     }
 
     #position {
         background-color: $darker_color;
-        padding: 0.5em 0em 0.5em 0em;
+        padding: 0.5em 0em;
         background-image: linear-gradient(to left, 
-        rgb(99, 99, 99),
-        rgba(0, 0, 0, 0) 100%);
+        $linecolor,
+        $dark_color 100%);
         border-bottom: 5px solid $light_color;
     }
 }
@@ -80,27 +75,15 @@ section {
     text-align:center; 
 
     #result { text-align: center; }
-    .textContainer { margin-left: 10px; }
+    #start-page-logo { width: 250px; }
+    #start-page { .material-symbols-outlined:hover {color: $secondary_happycolor; } }
+    #play-container { text-align: center; }
+    #fade { animation: fadeIn 1s; }
+    .textContainer { margin: 0 10px 0; }
     .album-cover { @include size(150px, 150px); }
     .center { text-align: center; }
     .flexbox { display: flex; }
-    #play-container { text-align: center; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
-    #start-page-logo { width: 250px; }
-    #start-page { .material-symbols-outlined:hover {color: rgb(245, 0, 224); } }
-    #fade { animation: fadeIn 1s; }
-
-    .replacement {
-        @include fixed(0, 0);
-        position: absolute;
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .material-symbols-outlined:hover {
-        @include hovereffect(scale(1.4), 0.2s, pointer);
-        color: $happycolor;
-    }
 
     #search-area {
         @include align(center, center);
@@ -108,41 +91,11 @@ section {
         display: flex;
     }
 
-    .original {
-        @include fixed(0, 0);
-        position: absolute;
-    }
-
     #img-container {
         @include size(350px, 350px);
         position: relative;
         margin: 0 auto;
         &:hover .replacement { opacity: 1; }
-    }
-
-    .songResult {
-        @include size(100%, auto);
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 0.2px solid $linecolor;
-        text-align: left;
-        &:nth-child(even) { background-color: $darker_color; }
-    }
-
-    .icon-container {
-        display: flex;
-        align-items: center;
-        gap: 1em;
-        margin-top: -1em;
-        .lyrics { &:hover { @include hovereffect(scale(1.2), 0.2s, pointer); } }
-    }
-
-    .play-container {
-        background-color: $dark_color;
-        padding: 2em;
-        border-radius: 1em;
-        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px
     }
 
     #btn-container {
@@ -174,6 +127,48 @@ section {
         box-sizing: border-box;
         width: 55px;
     }
+
+    .replacement {
+        @include fixed(0, 0);
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .material-symbols-outlined:hover {
+        @include hovereffect(scale(1.4), 0.2s, pointer);
+        color: $primary_happycolor;
+    }
+
+    .original {
+        @include fixed(0, 0);
+        position: absolute;
+    }
+
+    .songResult {
+        @include size(100%, auto);
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 0.2px solid $linecolor;
+        text-align: left;
+        &:nth-child(even) { background-color: $darker_color; }
+    }
+
+    .icon-container {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        margin: -1em 0 0;
+        .lyrics { &:hover { @include hovereffect(scale(1.2), 0.2s, pointer); } }
+    }
+
+    .play-container {
+        background-color: $dark_color;
+        padding: 2em;
+        border-radius: 1em;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px
+    }
     
     .search-icon {
         fill: $light_color;
@@ -182,14 +177,13 @@ section {
     }
 
     .lyrics-container {
+        @include space(2em 4em, 0 0 6em 0);
         background-color: $darker_color;
         border-radius: 2em;
-        padding: 2em 4em 2em 4em;
-        margin-bottom: 6em;
     }
 
     ::selection {
-        background: $happycolor;
+        background: $primary_happycolor;
         color: $primary-color;
       }
 }
@@ -198,8 +192,13 @@ section {
 
 #play-logo {
     animation: spin 2s forwards; 
-    padding: 3em 0em 3em 0em;
+    padding: 3em 0;
     width: 350px;
+}
+
+#info-container {
+    @include marginwidth(700px, 0 auto);
+    max-width: 100%;
 }
 
 input {
@@ -235,54 +234,46 @@ input {
 }
 
 footer {
-    margin-top: auto;
-    gap: 1em;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
+    @include displaycenterspace(flex, center, 1em);
+    @include space(20px, auto 0);
     border-top: 1px solid $linecolor;
     width: 350px;
     align-self: center;
-    img { width: 40px; }
 
+    img { width: 40px; }
     #footer-div>p {
         border-left: 1px solid $linecolor;
-        padding-left: 1.5em;
+        padding: 0 1.5em 0;
         font-size: 12px;
       }
 }
 
   .line {
-    @include marginwidth(100%, 2.5em 0em 6em 0em);
+    @include marginwidth(100%, 2.5em 0 6em);
     border: 1px solid $linecolor;
 }
 
 @media only screen and (max-width: 798px) {
-    header {bottom: 0;}
-    section {width: 100%;
-
-        .songResult {width: 100%;
-        img { margin-bottom: -7px; } }
-
-        #search-area {display: block !important;
-        svg { margin-top: 1em; } }
+    header { bottom: 0; }
+    section { width: 100%;
+        #search-area { display: block !important;
+        svg { margin: 1em 0 0; } }
+        .songResult { width: 100%; }
     }
 }
 
 @media screen and (max-width: 600px) {
     body {
         @include space(0, 0);
-        main { margin-top: 250px; }
+        
+        main { margin: 250px 0 0; }
 
         header {
-            @include marginwidth(100%, 0 auto);
-            height: 200px !important;
-            width: 100%;
+            @include size(100%, 200px);
+            @include space(25px 3px 0, 0 auto);
             text-align: center;
-            padding: 25px 0px 3px 0px;
             border-bottom: 1px solid $darker_color;
             box-shadow: 0 5px 10px $dark_color;
-            margin-bottom: 2em;
 
             br { display: none; }
             .replacement { display: none; }
@@ -291,12 +282,7 @@ footer {
         li { border-bottom: 0; margin: 0; }
         li:first-child { margin-left: 0; }
         li:not(:first-child) { margin-left: 1em; }
-        ul {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-        }
+        ul { @include displaycenterspace(flex, center, 1em);text-align: center;}
     
         #logo-container {
             @include size(100%, auto);
@@ -313,33 +299,37 @@ footer {
             padding: 0 4px 0 0;
             border-bottom: 3px solid $light_color;
             background-image: linear-gradient(to bottom, 
-            rgba(0, 0, 0, 0), 
-            rgb(112, 112, 112) 100%);
+            $dark_color, 
+            $linecolor 100%);
         }
     }
 
     section {
-        @include marginwidth(100%, 0 auto);
-
+        @include marginwidth(100%, 0 auto!important);
 
         #result { text-align: center; }
+        #generate-btn { width: 95%; }
+        #info-container { @include boxspace(border-box, 0 1em); }
+        #start-page-logo { @include marginwidth(130px, 90px 0 0); }
+        #img-container { @include size(70%, auto); }
         .line { display: none; }
         .album-cover { @include size(100px !important, 100px !important); }
-        #img-container { @include size(70%, auto); }
-        .play-container>.material-symbols-outlined{ font-size: 75px !important; }
+        .play-container>.material-symbols-outlined { font-size: 75px !important; }
         .replacement { display: none; }
-        #generate-btn { width: 95%; }
-        #play-logo { width: 180px; }
-        #info-container { padding: 0em 1em 0em 1em; }
+
+        #play-logo { 
+            @include marginwidth(180px, 2em 0 0);
+            padding: 0; 
+        }
 
         #search-area {
             display: block;
-            margin-bottom: 5em !important;
+            margin: 0 0 5em !important;
             input { border-radius: 8px !important; }
         }
 
         .songResult {
-            padding: 0.5em 1.5em 1.5em 1.5em;
+            padding: 0.5em 1.5em 1.5em;
             display: block !important;
             width: 100% !important;
         }
@@ -349,27 +339,22 @@ footer {
             position: static;
         }
 
-        #start-page-logo {
-            width: 130px;
-            margin-top: 90px;
-        }
-
         .play-container {
             border-radius: 0!important;
-            margin: 3.5em 1em 0em 1em;
+            margin: 3.5em 1em 0;
             box-shadow: none;
         }
 
         .lyrics-container {
             border-radius: 0;
-            padding: 1em 1em 1em 1em;
+            padding: 1em;
         }
     }
 
     footer {
+        @include marginwidth(100%, 5em 0 0);
         border-top: 1px solid $linecolor;
-        width: 100%;
+        box-sizing: border-box;
         justify-content: left;
-        margin-left: 1.5em;
     }
 }
