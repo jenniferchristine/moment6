@@ -1,5 +1,6 @@
 @use 'base' as *;
 @use 'animations' as *;
+@use 'component' as *;
 
 body {
     @include textlayout(left, 100% $font-stack);
@@ -8,7 +9,7 @@ body {
     margin-left: 150px;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+
 
     h1 { text-align: center; }
     p { @include textlayout(left, 100% $light_color); }
@@ -63,6 +64,12 @@ header {
         $linecolor,
         $dark_color 100%);
         border-bottom: 5px solid $light_color;
+
+    }
+
+    .hover:hover {
+        @extend #position;
+        transition: 0.4s;
     }
 }
 

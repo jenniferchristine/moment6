@@ -1,33 +1,37 @@
 @use 'base' as *;
 
 @keyframes changeColor {
-    0% {
-        filter: hue-rotate(260deg);
-      }
-      50% {
-        filter: hue-rotate(60deg);
-      }
-      80% {
-        filter: hue-rotate(240deg);
-      }
+  0% {
+    filter: hue-rotate(260deg);
+  }
+
+  50% {
+    filter: hue-rotate(60deg);
+  }
+
+  80% {
+    filter: hue-rotate(240deg);
+  }
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(90deg)
-    }
-    50% {
-      transform: rotate(0deg);
-    }
+  0% {
+    transform: rotate(90deg)
   }
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px); 
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0); 
-    }
+  50% {
+    transform: rotate(0deg);
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -4,6 +4,7 @@ let isPlaying = false;
 let audio = null;
 
 window.onload = () => {
+
     const searchValue = document.getElementById("searchValue");
 
     document.getElementById("searchButton").onclick = () => {
