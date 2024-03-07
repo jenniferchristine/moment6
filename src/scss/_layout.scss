@@ -73,7 +73,7 @@ header {
 }
 
 section {
-    @include maxsize(70%, auto, 800px);
+    @include maxsize(70%, auto, 1024px);
     @include align(center, center);
     box-sizing: border-box;
     margin: 0 auto;
@@ -88,6 +88,7 @@ section {
     .play-container>.material-symbols-outlined{ font-size: 100px; }
     #start-page-logo { width: 250px; }
     #start-page { .material-symbols-outlined:hover {color: rgb(245, 0, 224); } }
+    #fade { animation: fadeIn 1s; }
 
     .replacement {
         @include fixed(0, 0);
@@ -276,6 +277,7 @@ footer {
         header {
             @include marginwidth(100%, 0 auto);
             height: 200px !important;
+            width: 100%;
             text-align: center;
             padding: 25px 0px 3px 0px;
             border-bottom: 1px solid $darker_color;
