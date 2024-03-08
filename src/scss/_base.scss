@@ -91,3 +91,10 @@ $paragraph-text: 'Inter';
     justify-content: $justify;
     gap: $gap;
 }
+
+@mixin btnhover($transform, $color, $cursor, $transition) {
+    transform: $transform;
+    color: $color;
+    cursor: $cursor;
+    transition: $transition;
+}

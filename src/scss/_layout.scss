@@ -9,6 +9,7 @@ body {
     margin-left: 150px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 
 
     h1 { text-align: center; }
@@ -81,8 +82,6 @@ section {
     text-align:center; 
 
     #result { text-align: center; }
-    #start-page-logo { width: 250px; }
-    #start-page { .material-symbols-outlined:hover {color: $secondary_happycolor; } }
     #play-container { text-align: center; }
     #fade { animation: fadeIn 1s; }
     .textContainer { margin: 0 10px 0; }
@@ -90,6 +89,12 @@ section {
     .center { text-align: center; }
     .flexbox { display: flex; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
+    .material-symbols-outlined:hover { @include btnhover(scale(1.4), $primary_happycolor, pointer, 0.2s); }
+
+
+    #start-page .material-symbols-outlined:hover { 
+        @include btnhover(scale(1.2), $secondary_happycolor, pointer, 0.2s); 
+    } 
 
     #search-area {
         @include align(center, center);
@@ -140,12 +145,6 @@ section {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
     }
-
-    .material-symbols-outlined:hover {
-        @include hovereffect(scale(1.4), 0.2s, pointer);
-        color: $primary_happycolor;
-    }
-
     .original {
         @include fixed(0, 0);
         position: absolute;
@@ -194,7 +193,11 @@ section {
       }
 }
 
-#start-page-logo:hover { animation: changeColor 6s infinite; }
+#start-page-logo { 
+    width: 250px; 
+    transition: transform 0.3s ease;
+    &:hover { animation: pulse 0.8s infinite alternate; transition: 0.4s;}
+}
 
 #play-logo {
     animation: spin 2s forwards; 
@@ -241,7 +244,7 @@ input {
 
 footer {
     @include displaycenterspace(flex, center, 1em);
-    @include space(20px, auto 0);
+    @include space(20px, auto 0 0);
     border-top: 1px solid $linecolor;
     width: 350px;
     align-self: center;
@@ -358,7 +361,7 @@ footer {
     }
 
     footer {
-        @include marginwidth(100%, 5em 0 0);
+        width: 100%;
         border-top: 1px solid $linecolor;
         box-sizing: border-box;
         justify-content: left;
