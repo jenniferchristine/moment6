@@ -88,12 +88,17 @@ section {
     #play-container { text-align: center; }
     #fade { animation: fadeIn 1s; }
     .textContainer { margin: 0 10px 0; }
-    .album-cover { @include size(150px, 150px); }
     .center { text-align: center; }
     .flexbox { display: flex; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
     .material-symbols-outlined:hover { @include btnhover(scale(1.4), $primary_happycolor, pointer, 0.2s); }
 
+    .album-cover {
+         @include size(150px, 150px); 
+
+         &:hover { cursor: pointer; 
+        filter: brightness(110%); }
+    }
 
     #start-page .material-symbols-outlined:hover { 
         @include btnhover(scale(1.2), $secondary_happycolor, pointer, 0.2s); 
@@ -170,7 +175,7 @@ section {
         margin: -1em 0 0;
 
         .lyrics:hover { 
-            @include hovereffect(scale(1.2), 0.2s, pointer); 
+            cursor: pointer;
             text-decoration: underline; } 
     }
 
