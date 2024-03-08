@@ -71,7 +71,7 @@ async function getRandomSong() {
         const data = await response.json();
         if (!data.artist || !data.preview) {
             console.log("Funkar inte");
-            getRandomSong();
+            return await getRandomSong();
         } else {
             console.log("Funkar");
             return {
