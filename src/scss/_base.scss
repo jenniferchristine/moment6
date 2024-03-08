@@ -12,15 +12,15 @@ $light_color: rgb(255, 255, 255);
 $primary_happycolor: #f6da0c;
 $secondary_happycolor: rgb(245, 0, 224);
 
-@mixin maxsize($width, $height, $fullwidth) {
+@mixin maxsize($width, $height, $max) {
     width: $width;
     height: $height;
-    max-width: $fullwidth;
+    max-width: $max;
 }
 
-@mixin size($wide, $high) {
-    width: $wide;
-    height: $high;
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
 }
 
 @mixin color($bkgd, $textcolor) {
@@ -33,9 +33,9 @@ $secondary_happycolor: rgb(245, 0, 224);
     font: $font;
 }
 
-@mixin textsize($size, $widetext, $space) {
+@mixin textsize($size, $weight, $space) {
     font-size: $size;
-    font-weight: $widetext;
+    font-weight: $weight;
     letter-spacing: $space;
 }
 
@@ -54,26 +54,15 @@ $secondary_happycolor: rgb(245, 0, 224);
     left: $left;
 }
 
-@mixin hovereffect($transform, $transition, $cursor) {
-    transform: $transform;
-    transition: $transition;
-    cursor: $cursor;
-}
-
-@mixin smoothhover($transition, $cursor) {
-    transition: $transition;
-    cursor: $cursor;
-}
-
 @mixin ul($list-style, $align, $padding) {
     list-style-type: $list-style;
     text-align: $align;
     padding: $padding;
 }
 
-@mixin a($text-deco, $color) {
+@mixin a($text-deco, $textcolor) {
     text-decoration: $text-deco;
-    color: $color;
+    color: $textcolor;
 }
 
 @mixin marginwidth($width, $margin) {
@@ -86,15 +75,19 @@ $secondary_happycolor: rgb(245, 0, 224);
     margin: $margin;
 }
 
-@mixin displaycenterspace($display, $justify, $gap) {
+@mixin centergap($display, $justify, $gap) {
     display: $display;
     justify-content: $justify;
     gap: $gap;
 }
 
-@mixin btnhover($transform, $color, $cursor, $transition) {
+@mixin colorhover($transform, $color, $cursor) {
     transform: $transform;
     color: $color;
     cursor: $cursor;
-    transition: $transition;
+}
+
+@mixin hoverscale($transform, $cursor) {
+    transform: $transform;
+    cursor: $cursor;
 }
