@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
 $font-stack: 'Poppins';
+$paragraph-text: 'Inter';
+$dark_color: rgb(44, 44, 44);
 $darker_color: #333;
 $primary-color: #464646;
 $linecolor: #b3b3b3;
 $light_color: rgb(255, 255, 255);
-$dark_color: rgb(44, 44, 44);
 $primary_happycolor: #f6da0c;
 $secondary_happycolor: rgb(245, 0, 224);
-$paragraph-text: 'Inter';
 
 @mixin maxsize($width, $height, $fullwidth) {
     width: $width;

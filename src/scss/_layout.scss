@@ -43,7 +43,11 @@ header {
         @include size(30%, 20px);
         position: relative;
         padding: 30px;
-        &:hover .replacement { opacity: 1; }
+        &:hover .replacement { 
+            opacity: 1;
+            transform: rotateY(360deg); 
+            transition: transform 2s ease;
+        }
 
         .original {
             @include fixed(30, 45);
@@ -65,7 +69,6 @@ header {
         $linecolor,
         $dark_color 100%);
         border-bottom: 5px solid $light_color;
-
     }
 
     .hover:hover {
