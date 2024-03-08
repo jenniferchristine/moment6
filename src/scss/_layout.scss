@@ -168,7 +168,10 @@ section {
         align-items: center;
         gap: 1em;
         margin: -1em 0 0;
-        .lyrics { &:hover { @include hovereffect(scale(1.2), 0.2s, pointer); } }
+
+        .lyrics:hover { 
+            @include hovereffect(scale(1.2), 0.2s, pointer); 
+            text-decoration: underline; } 
     }
 
     .play-container {
