@@ -21,12 +21,12 @@ header {
     }
 
     .original {
-        @include fixed(30, 45);
+        @include fixed(30, 50);
         position: absolute;
         width: 50%; }
 
     .replacement {
-        @include fixed(30, 45);
+        @include fixed(30, 50);
         position: absolute;
         width: 50%;
         opacity: 0;
@@ -40,7 +40,6 @@ section {
     .textContainer { margin: 0 10px 0; }
     .center { text-align: center; }
     .flexbox { display: flex; }
-
     .material-symbols-outlined { transition: 0.4s; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
     .material-symbols-outlined:hover { @include colorhover(scale(1.4), $primary_happycolor, pointer); }
@@ -81,6 +80,7 @@ section {
         opacity: 0;
         transition: opacity 0.3s ease-in-out;
     }
+    
     .original {
         @include fixed(0, 0);
         position: absolute;
