@@ -150,7 +150,7 @@ footer {
     align-self: center;
     align-items: center;
 
-    img { @include size(40px, 20px);}
+    img { @include size(40px, 15px);}
     #footer-div>p {
         border-left: 1px solid $linecolor;
         padding: 0 1.5em 0;
