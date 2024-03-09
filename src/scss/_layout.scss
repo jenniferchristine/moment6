@@ -157,16 +157,19 @@ footer {
       }
 }
 
-/*@media (prefers-color-scheme: dark) {
-    header, body {
-    @include theme-colors(false);
+@media (prefers-color-scheme: dark) {
+    header { background-color: $primary-color; 
+        #position { background-color: $primary-color; 
+            background-image: linear-gradient(to left, 
+            $linecolor, $primary-color 100%); }
+        .hover:hover { background-image: none; }
+    }
+    body { background-color: $darker_color;
+        .play-container { background-color: $primary-color; }
+        .songResult:nth-child(even) { background-color: $primary-color; }
+        .lyrics-container { background-color: $primary-color; }
     }
 }
-@media (prefers-color-scheme: light) {
-    header, body {
-    @include theme-colors(true);
-    }
-}*/
 
 @media only screen and (max-width: 798px) {
     header { bottom: 0; }

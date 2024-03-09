@@ -9,7 +9,6 @@ body {
 
 header {
     #logo:hover { cursor: pointer; }
-
     .hover { transition: 0.4s;&:hover { @extend #position; } }
 
     #position {
@@ -44,10 +43,8 @@ section {
 
     .material-symbols-outlined { transition: 0.4s; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
-    .material-symbols-outlined:hover { 
-        @include colorhover(scale(1.4), $primary_happycolor, pointer); }
-    #start-page .material-symbols-outlined:hover { 
-        @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
+    .material-symbols-outlined:hover { @include colorhover(scale(1.4), $primary_happycolor, pointer); }
+    #start-page .material-symbols-outlined:hover { @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
 
     .album-cover {
          @include size(150px, 150px); 
