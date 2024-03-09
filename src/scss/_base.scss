@@ -4,13 +4,16 @@
 
 $font-stack: 'Poppins';
 $paragraph-text: 'Inter';
-$dark_color: rgb(44, 44, 44);
-$darker_color: #333;
-$primary-color: #464646;
-$linecolor: #b3b3b3;
-$light_color: rgb(255, 255, 255);
+
 $primary_happycolor: #f6da0c;
 $secondary_happycolor: rgb(245, 0, 224);
+
+$primary-color: #464646;
+
+$darker_color: darken($primary-color, 10%);
+$darkest_color: darken($primary-color, 14%);
+$light_color: lighten($primary-color, 100%);
+$linecolor: lighten($primary-color, 30%);
 
 @mixin maxsize($width, $height, $max) {
     width: $width;

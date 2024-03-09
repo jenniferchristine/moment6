@@ -3,7 +3,7 @@
 
 body {
     h1 { text-align: center; }
-    p { @include textlayout(left, 100% $light_color); }
+    p { @include textlayout(left, $light_color); }
     h2 { font-size: 20px;text-align: center; }
 }
 
@@ -17,7 +17,7 @@ header {
         padding: 0.5em 0em;
         background-image: linear-gradient(to left, 
         $linecolor,
-        $dark_color 100%);
+        $darkest_color 100%);
         border-bottom: 5px solid $light_color;
     }
 
@@ -62,14 +62,14 @@ section {
         height: auto;
         font: 100% $paragraph-text;
         font-weight: 900;
-        border: 1px solid $dark_color;
+        border: 1px solid $darkest_color;
         outline: none;
         transition: 0.2s;
 
         &:hover {
-            @include color($dark_color, $light_color);
+            @include color($darkest_color, $light_color);
             cursor: pointer;
-            border: 1px solid $dark_color; }
+            border: 1px solid $darkest_color; }
     }
 
     #logo-btn {

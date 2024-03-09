@@ -18,8 +18,8 @@ header {
     @include boxspace(border-box, 0);
     @include fixed(0, 0);
     position: fixed;
-    border-right: 1px solid $dark_color;
-    box-shadow: 5px 0 10px $dark_color;
+    border-right: 1px solid $darkest_color;
+    box-shadow: 5px 0 10px $darkest_color;
 
     ul { @include ul(none, left, 0); }
     a { @include a(none, $light_color); }
@@ -66,7 +66,7 @@ section {
 
     #btn-container {
         display: inline-block;
-        background-color: $dark_color;
+        background-color: $darkest_color;
         &:hover { box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px; }
     }
 
@@ -92,7 +92,7 @@ section {
     }
 
     .play-container {
-        background-color: $dark_color;
+        background-color: $darkest_color;
         padding: 2em;
         border-radius: 1em;
         box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px
@@ -157,6 +157,17 @@ footer {
       }
 }
 
+/*@media (prefers-color-scheme: dark) {
+    header, body {
+    @include theme-colors(false);
+    }
+}
+@media (prefers-color-scheme: light) {
+    header, body {
+    @include theme-colors(true);
+    }
+}*/
+
 @media only screen and (max-width: 798px) {
     header { bottom: 0; }
     section { width: 100%;
@@ -177,7 +188,7 @@ footer {
             @include space(25px 3px 0, 0 auto);
             text-align: center;
             border-bottom: 1px solid $darker_color;
-            box-shadow: 0 5px 10px $dark_color;
+            box-shadow: 0 5px 10px $darkest_color;
 
             br { display: none; }
             .replacement { display: none; }
@@ -203,7 +214,7 @@ footer {
             padding: 0 4px 0 0;
             border-bottom: 3px solid $light_color;
             background-image: linear-gradient(to bottom, 
-            $dark_color, 
+            $darkest_color, 
             $linecolor 100%);
         }
     }
