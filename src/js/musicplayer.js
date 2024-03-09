@@ -54,7 +54,9 @@ function toggleMusic(audio, pauseBtn) {
     }
 }
 
-async function getRandomSong() {
+async function getRandomSong(retries = 10) {
+    if (retries <= 0)
+    throw Error("Can't find a song, no more retries");
     const random = Math.floor(Math.random() * playlist.length);
     const url = "https://deezerdevs-deezer.p.rapidapi.com/track/" + playlist[random].id;
     const options = {
@@ -70,8 +72,8 @@ async function getRandomSong() {
     if (response.ok) {
         const data = await response.json();
         if (!data.artist || !data.preview) {
-            console.log("Funkar inte");
-            return await getRandomSong();
+            console.log("Trying another");
+            return await getRandomSong(retries - 1);
         } else {
             console.log("Funkar");
             return {
