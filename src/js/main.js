@@ -40,7 +40,6 @@ async function search(song) {
 }
 
 function printSongs(result) {
-    console.log(result.data.slice(0, 8));
     const resultDiv = document.getElementById("result");
     resultDiv.innerHTML = "";
 
@@ -127,7 +126,6 @@ function printSongs(result) {
 
 async function showLyrics(artistName, title) {
     const lyrics = await getLyrics(artistName, title);
-    console.log(lyrics);
     const container = document.getElementById("result");
     container.innerHTML = "";
 
@@ -156,17 +154,16 @@ async function getLyrics(artistName, title) {
                 return `<h2>Ops!</h2><p class="center">Unfortunately, we couldn't find the lyrics for this song</p>`;
             } else {
                 console.log("Something went wrong:", response.statusText);
-                return "Lyrics for this song could not be found";
+                return `<h2>Ops!</h2><p class="center">Unfortunately, we couldn't find the lyrics for this song</p>`;
             }
         }
     } catch (error) {
         console.error("Something went wrong:", error);
-        return "Lyrics for this song could not be found";
+        return `<h2>Ops!</h2><p class="center">Unfortunately, we couldn't find the lyrics for this song</p>`;
     }
 }
 
 function playAndToggle(previewURL, btn) {
-    // första låten
     if (audio === null) {
         audio = new Audio(previewURL);
         audio.play();
@@ -175,7 +172,6 @@ function playAndToggle(previewURL, btn) {
         return;
     }
 
-    // om ny låt
     if (audio.src != previewURL) {
         const btns = document.querySelectorAll(".icon-container span");
         Array.from(btns).forEach((btn) => btn.innerHTML = "play_circle");
@@ -187,11 +183,11 @@ function playAndToggle(previewURL, btn) {
         return;
     }
 
-    if (isPlaying === false) { // om låten är pausad
+    if (isPlaying === false) { 
         audio.play();
         btn.innerHTML = "pause_circle";
         isPlaying = true;
-    } else { // om låten spelas just nu
+    } else { 
         audio.pause();
         isPlaying = false;
         btn.innerHTML = "play_circle";

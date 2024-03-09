@@ -31,7 +31,7 @@
 122C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\generator\sourceMap.js133544851965326578 0
 108C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\runtime-js\src\helpers\browser\prefetch-loader.js133544851959571997 0
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\utility-types\package.json133544851951663159 0
-42C:\Users\jenif\Desktop\dt211g\moment6\dist133544890879563351 1
+42C:\Users\jenif\Desktop\dt211g\moment6\dist133544894936402982 1
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@swc\helpers\_\_class_private_field_init133544851967041993 1
 77C:\Users\jenif\Desktop\dt211g\moment6\node_modules\follow-redirects\README.md133544851951762906 0
 80C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@babel\highlight\node_modules133544851933283401 1
@@ -125,7 +125,7 @@
 82C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\regions\MK.js133544851970881711 0
 59C:\Users\jenif\Desktop\dt211g\moment6\node_modules\argparse133544851953248909 1
 98C:\Users\jenif\Desktop\dt211g\moment6\node_modules\csso\node_modules\css-tree\cjs\parser\index.cjs133544851961526753 0
-52C:\Users\jenif\Desktop\dt211g\moment6\src\js\main.js133544823928699230 0
+52C:\Users\jenif\Desktop\dt211g\moment6\src\js\main.js133544894618125508 0
 62C:\Users\jenif\Desktop\dt211g\moment6\node_modules\timsort\src133544851952251583 1
 123C:\Users\jenif\Desktop\dt211g\moment6\node_modules\msgpackr-extract\node_modules\node-gyp-build-optional-packages\README.md133544851951673134 0
 74C:\Users\jenif\Desktop\dt211g\moment6\node_modules\to-regex-range\index.js133544851948860961 0
@@ -136,7 +136,7 @@
 105C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@babel\code-frame\node_modules\supports-color\index.js133544851949798152 0
 62C:\Users\jenif\Desktop\dt211g\moment6\src\images\icon_pink.svg133543864436410926 0
 74C:\Users\jenif\Desktop\dt211g\moment6\node_modules\weak-lru-cache\index.js133544851949937783 0
-59C:\Users\jenif\Desktop\dt211g\moment6\src\js\musicplayer.js133544882497939375 0
+59C:\Users\jenif\Desktop\dt211g\moment6\src\js\musicplayer.js133544894935994078 0
 91C:\Users\jenif\Desktop\dt211g\moment6\node_modules\css-tree\lib\syntax\node\SelectorList.js133544851967500764 0
 90C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\features\innertext.js133544851969924269 0
 114C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\lexer\match.js133544851962923013 0
@@ -2662,7 +2662,7 @@
 86C:\Users\jenif\Desktop\dt211g\moment6\node_modules\@swc\helpers\_\_update\package.json133544851968677636 0
 82C:\Users\jenif\Desktop\dt211g\moment6\node_modules\caniuse-lite\data\regions\GI.js133544851969515368 0
 87C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\logger.js133544851954425761 0
-61C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js133544881346571751 0
+61C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js133544894936343148 0
 96C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\path-rewriter.d.ts133544851958714283 0
 107C:\Users\jenif\Desktop\dt211g\moment6\node_modules\csso\node_modules\css-tree\lib\syntax\node\Percentage.js133544851967191593 0
 94C:\Users\jenif\Desktop\dt211g\moment6\node_modules\http-proxy-middleware\dist\path-rewriter.js133544851954884544 0
@@ -6304,8 +6304,6 @@
 64C:\Users\jenif\Desktop\dt211g\moment6\dist\iconpink.9251bc5f.png133542059579905772 0
 65C:\Users\jenif\Desktop\dt211g\moment6\dist\icon_pink.84a56de2.png133542274373846401 0
 67C:\Users\jenif\Desktop\dt211g\moment6\dist\icon_yellow.dcbc088c.png133542252846270679 0
-60C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js133544881346571751 0
-64C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js.map133544881346661514 0
 65C:\Users\jenif\Desktop\dt211g\moment6\dist\index.cbbcc493.css.map133542037928337543 0
 59C:\Users\jenif\Desktop\dt211g\moment6\dist\info.787f6f54.js133544881346571751 0
 72C:\Users\jenif\Desktop\dt211g\moment6\dist\logo_blue-shadow.83a2326a.svg133544881346541836 0
@@ -6316,9 +6314,11 @@
 70C:\Users\jenif\Desktop\dt211g\moment6\dist\logo_play_blue.416140a5.svg133544881346521883 0
 74C:\Users\jenif\Desktop\dt211g\moment6\dist\logo_yellow-shadow.40828d3c.svg133544881346521883 0
 69C:\Users\jenif\Desktop\dt211g\moment6\dist\musiclogopink.2f6b6e85.png133542090887624042 0
-65C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js.map133544881346651543 0
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping2.2.68d14047.png133541420465389149 0
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping3.2.93f5d8aa.png133542037921453853 0
 68C:\Users\jenif\Desktop\dt211g\moment6\dist\testsping3.2.aada5df0.png133542090887614073 0
 61C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css133544890879533186 0
 65C:\Users\jenif\Desktop\dt211g\moment6\dist\index.b10d73a7.css.map133544890879553405 0
+60C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js133544894113933281 0
+64C:\Users\jenif\Desktop\dt211g\moment6\dist\index.18dbc454.js.map133544894113963505 0
+65C:\Users\jenif\Desktop\dt211g\moment6\dist\player.0224727a.js.map133544894936402982 0

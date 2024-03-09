@@ -12,7 +12,6 @@ async function playSong() {
     const song = await getRandomSong();
 
     if (audio) if (!audio.paused) audio.pause();
-    console.log("Försöker spela låt...")
     audio = new Audio(song.link);
     audio.play();
 
@@ -72,10 +71,8 @@ async function getRandomSong(retries = 10) {
     if (response.ok) {
         const data = await response.json();
         if (!data.artist || !data.preview) {
-            console.log("Trying another");
             return await getRandomSong(retries - 1);
         } else {
-            console.log("Funkar");
             return {
                 title: data.title,
                 artist: data.artist.name,
