@@ -15,7 +15,7 @@ async function playSong() {
     audio = new Audio(song.link);
     audio.play();
 
-    const container = document.getElementById("start-page");
+    const container = document.getElementById("generate-result");
     const playContainer = document.createElement("div");
     playContainer.classList.add("play-container");
     container.innerHTML = "";
@@ -76,7 +76,6 @@ async function getRandomSong(retries = 10) {
             return {
                 title: data.title,
                 artist: data.artist.name,
-                picture: data.artist.picture,
                 link: data.preview
             };
         }

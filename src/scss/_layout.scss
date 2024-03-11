@@ -49,7 +49,7 @@ section {
     @include align(center, center);
     box-sizing: border-box;
     margin: 0 auto;
-    text-align:center; 
+    text-align: center; 
 
     #search-area {
         @include align(center, center);
@@ -225,7 +225,6 @@ footer {
         #result { text-align: center; }
         #generate-btn { width: 95%; }
         #info-container { @include boxspace(border-box, 0 1em); }
-        #start-page-logo { @include marginwidth(130px, 90px 0 0); }
         #img-container { @include size(70%, auto); }
         .line { display: none; }
         .album-cover { @include size(100px !important, 100px !important); }

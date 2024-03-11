@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="utf-8">
+    <title>Music generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="scss/main.scss">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0">
+    <script src="js/musicplayer.js" type="module"></script>
+</head>
+
+<body>
+    <header>
+        <div id="logo-container">
+            <a href="index.html">
+                <img src="images/icon_pink.svg" class="original" alt="original pink logotype">
+                <img src="images/icon_yellow.svg" class="replacement" alt="replacement yellow logotype">
+            </a>
+        </div>
+        <br><br>
+        <nav>
+            <ul>
+                <li class="hover"><a href="index.html">PLAY SONG</a></li>
+                <li class="hover"><a href="info.html">INFO</a></li>
+                <li id="position"><a href="generate.html">&nbsp;GENERATE</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Click and listen</h1>
+            <div id="btn-container">
+                <div class="flexbox">
+                    <img src="images/icon_white.svg" id="logo-btn" alt="white icon for note">
+                    <button id="generate-btn">Generate song</button>
+                </div>
+            </div>
+            <div class="line"></div>
+            <div id="fade">
+                <div id="generate-result">
+                    <img src="images/icon_pink.svg" id="big-icon" alt="big pink icon">
+                    <p class="center">Click to get a randomly generated song</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <img src="images/logo_jeja.svg" alt="logo for creater">
+        <div id="footer-div">
+            <p>Copyright Jennifer Jakobsson, 2024<br>
+                dt211g Frontend-baserad webbutveckling</p>
+        </div>
+    </footer>
+</body>
+
+</html>

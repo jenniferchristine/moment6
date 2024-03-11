@@ -13,7 +13,7 @@ window.onload = () => {
 
     searchValue.addEventListener('keypress', async function (e) {
         if (e.key === 'Enter')
-            search(searchValue.value);
+            await search(searchValue.value);
     });
 }
 
@@ -46,7 +46,7 @@ function printSongs(result) {
     if (result.data.length === 0) {
 
         const errorEl = document.createElement("h2");
-        const errorText = document.createTextNode("No results to be find in your search");
+        const errorText = document.createTextNode("No results were found in your search");
         errorEl.appendChild(errorText);
         resultDiv.appendChild(errorEl);
 
@@ -129,10 +129,10 @@ async function showLyrics(artistName, title) {
     const container = document.getElementById("result");
     container.innerHTML = "";
 
-    const abc = document.createElement("div");
-    abc.classList.add("lyrics-container");
-    abc.innerHTML = lyrics.split("\n").join("<br>");
-    container.appendChild(abc);
+    const lyricsContainer = document.createElement("div");
+    lyricsContainer.classList.add("lyrics-container");
+    lyricsContainer.innerHTML = lyrics.split("\n").join("<br>");
+    container.appendChild(lyricsContainer);
 }
 
 async function getLyrics(artistName, title) {
@@ -165,31 +165,31 @@ async function getLyrics(artistName, title) {
 
 function playAndToggle(previewURL, btn) {
     if (audio === null) {
-        audio = new Audio(previewURL);
-        audio.play();
-        btn.innerHTML = "pause_circle";
-        isPlaying = true;
-        return;
+        return newAudio(previewURL, btn);
     }
 
     if (audio.src != previewURL) {
         const btns = document.querySelectorAll(".icon-container span");
         Array.from(btns).forEach((btn) => btn.innerHTML = "play_circle");
         audio.pause();
-        audio = new Audio(previewURL);
-        audio.play();
-        btn.innerHTML = "pause_circle";
-        isPlaying = true;
-        return;
+        return newAudio(previewURL, btn);
     }
 
-    if (isPlaying === false) { 
+    if (isPlaying === false) {
         audio.play();
         btn.innerHTML = "pause_circle";
         isPlaying = true;
-    } else { 
+    } else {
         audio.pause();
-        isPlaying = false;
         btn.innerHTML = "play_circle";
+        isPlaying = false;
     }
+}
+
+function newAudio(url, btn) {
+    audio = new Audio(url);
+    audio.play();
+    btn.innerHTML = "pause_circle";
+    isPlaying = true;
+    return
 }

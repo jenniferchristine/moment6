@@ -21,14 +21,12 @@ header {
     }
 
     .original {
-        @include fixed(30, 50);
+        @include fixed(30px, 50px);
         position: absolute;
         width: 50%; }
 
     .replacement {
-        @include fixed(30, 50);
-        position: absolute;
-        width: 50%;
+        @extend .original;
         opacity: 0;
         transition: opacity 0.3s ease-in-out; }
 }
@@ -43,7 +41,7 @@ section {
     .material-symbols-outlined { transition: 0.4s; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
     .material-symbols-outlined:hover { @include colorhover(scale(1.4), $primary_happycolor, pointer); }
-    #start-page .material-symbols-outlined:hover { @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
+    #generate-result .material-symbols-outlined:hover { @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
 
     .album-cover {
          @include size(150px, 150px); 
@@ -99,8 +97,8 @@ section {
       }
 }
 
-#start-page-logo { 
-    width: 250px; 
+#big-icon { 
+    @include marginwidth(130px, 90px 0 0);
     transition: transform 0.3s ease-in-out;
     &:hover { animation: pulse 0.8s infinite alternate;}
 }
