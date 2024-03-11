@@ -226,6 +226,7 @@ footer {
         #generate-btn { width: 95%; }
         #info-container { @include boxspace(border-box, 0 1em); }
         #img-container { @include size(70%, auto); }
+        #big-icon { @include marginwidth(130px, 90px 0 0); }
         .line { display: none; }
         .album-cover { @include size(100px !important, 100px !important); }
         .play-container>.material-symbols-outlined { font-size: 75px !important; }

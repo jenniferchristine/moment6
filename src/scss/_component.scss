@@ -98,7 +98,7 @@ section {
 }
 
 #big-icon { 
-    @include marginwidth(130px, 90px 0 0);
+    width: 250px;
     transition: transform 0.3s ease-in-out;
     &:hover { animation: pulse 0.8s infinite alternate;}
 }
