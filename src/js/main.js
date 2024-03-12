@@ -107,17 +107,6 @@ function printSongs(result) {
         albumCover.classList.add("album-cover");
         albumCover.src = song.album.cover;
         
-        let isAlbumCover = true;
-        
-        albumCover.addEventListener("click", function() {
-            if (isAlbumCover) {
-                albumCover.src = song.artist.picture;
-            } else {
-                albumCover.src = song.album.cover;
-            }
-            isAlbumCover = !isAlbumCover;
-        });
-        
         container.appendChild(albumCover);
         resultDiv.appendChild(container);
         

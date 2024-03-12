@@ -35,20 +35,14 @@ section {
     #result { text-align: center; }
     #play-container { text-align: center; }
     #fade { animation: fadeIn 1s; }
+    #generate-result .material-symbols-outlined:hover { @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
     .textContainer { margin: 0 10px 0; }
     .center { text-align: center; }
     .flexbox { display: flex; }
     .material-symbols-outlined { transition: 0.4s; }
     .play-container>.material-symbols-outlined{ font-size: 100px; }
     .material-symbols-outlined:hover { @include colorhover(scale(1.4), $primary_happycolor, pointer); }
-    #generate-result .material-symbols-outlined:hover { @include colorhover(scale(1.2), $secondary_happycolor, pointer); } 
-
-    .album-cover {
-         @include size(150px, 150px); 
-
-        &:hover { cursor: pointer; 
-        filter: brightness(110%); }
-    }
+    .album-cover { @include size(150px, 150px); }
 
     #generate-btn {
         @include color($primary-color, $light_color);
