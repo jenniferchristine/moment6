@@ -49,8 +49,19 @@
             <div id="fade">
                 <div id="result">
                     <div id="img-container">
+                        <picture class="original">
+                            <source media="(max-width: 600px)" srcset="images/logo_yellow_small.webp">
+                            <source media="(min-width: 601px)" srcset="images/logo_yellow_test.webp">
+                            <img src="images/logo_yellow_fallback.png" alt="fallback Image">
+                          </picture>
+                          <picture class="replacement">
+                            <source media="(min-width: 601px)" srcset="images/logo_blue_test.webp">
+                            <img src="images/logo_blue_fallback.png" alt="fallback Image">
+                          </picture>
+                          <!--
                         <img src="images/logo_yellow_test.webp" class="original" alt="big original yellow logotype">
                         <img src="images/logo_blue_test.webp" class="replacement" alt="big replacement blue logotype">
+                        -->
                     </div>
                     <p class="center">Find the lyrics to your favorite songs</p>
                 </div>
