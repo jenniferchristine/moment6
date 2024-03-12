@@ -44,7 +44,11 @@
                 The website has combined several open API's that provide it with information about the music. Sometimes
                 it can be a bit clumsy in its fetching and a double click or refresh may be in order!
             </p>
-                <img src="images/logo_play_test.webp" id="play-logo" alt="big logotype">
+            <picture id="play-logo">
+                <source media="(max-width: 600px)" srcset="images/logo_play_small.webp">
+                <source media="(min-width: 601px)" srcset="images/logo_play_big.webp">
+                <img src="images/logo_play_fallback.png" alt="fallback image for logo">
+              </picture>
             </div>
         </div>
         </section>

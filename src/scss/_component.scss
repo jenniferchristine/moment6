@@ -97,7 +97,7 @@ section {
     &:hover { animation: pulse 0.8s infinite alternate;}
 }
 
-#play-logo {
+#play-logo>img {
     animation: spin 2s forwards; 
     padding: 3em 0;
     width: 350px;

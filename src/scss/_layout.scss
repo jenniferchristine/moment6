@@ -226,14 +226,15 @@ footer {
         #generate-btn { width: 95%; }
         #info-container { @include boxspace(border-box, 0 1em); }
         #img-container { @include size(70%, auto); }
-        #big-icon { @include marginwidth(130px, 90px 0 0); }
+        #big-icon { @include marginwidth(120px, 90px 0 0); }
         .line { display: none; }
         .album-cover { @include size(100px !important, 100px !important); }
         .play-container>.material-symbols-outlined { font-size: 75px !important; }
         .replacement { display: none; }
+        .original { position: static; }
 
-        #play-logo { 
-            @include marginwidth(180px, 2em 0 3em 0);
+        #play-logo>img { 
+            @include marginwidth(180px, 2em 0);
             padding: 0; 
         }
 
@@ -247,11 +248,6 @@ footer {
             padding: 0.5em 1.5em 1.5em;
             display: block !important;
             width: 100% !important;
-        }
-
-        .original {
-            width: 190px;
-            position: static;
         }
 
         .play-container {
