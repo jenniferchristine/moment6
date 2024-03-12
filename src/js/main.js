@@ -106,6 +106,7 @@ function printSongs(result) {
         const albumCover = document.createElement("img");
         albumCover.classList.add("album-cover");
         albumCover.src = song.album.cover;
+        albumCover.alt = "image for album";
         
         container.appendChild(albumCover);
         resultDiv.appendChild(container);
