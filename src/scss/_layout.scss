@@ -233,7 +233,7 @@ footer {
         .replacement { display: none; }
 
         #play-logo { 
-            @include marginwidth(180px, 2em 0 0);
+            @include marginwidth(180px, 2em 0 3em 0);
             padding: 0; 
         }
 
