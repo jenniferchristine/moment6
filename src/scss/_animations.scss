@@ -1,19 +1,5 @@
 @use 'base' as *;
 
-@keyframes changeColor {
-  0% {
-    filter: hue-rotate(260deg);
-  }
-
-  50% {
-    filter: hue-rotate(60deg);
-  }
-
-  80% {
-    filter: hue-rotate(240deg);
-  }
-}
-
 @keyframes spin {
   0% {
     transform: rotate(90deg)
